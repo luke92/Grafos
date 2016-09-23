@@ -1,3 +1,4 @@
+package util;
 import org.openstreetmap.gui.jmapviewer.tilesources.AbstractOsmTileSource;
 
 public class OfflineOsmTileSource extends AbstractOsmTileSource {

@@ -1,6 +1,10 @@
+package view;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
+
 import javax.swing.JFrame;
 
 import org.openstreetmap.gui.jmapviewer.Coordinate;
@@ -12,10 +16,10 @@ import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 
 import util.Proxy;
 
-public class MainForm
+public class MainForm_profes
 {
 	private JFrame frame;
-	private JMapViewer mapViewer;
+	private JMapViewer miMapa;
 
 	public static void main(String[] args)
 	{
@@ -25,7 +29,7 @@ public class MainForm
 			{
 				try
 				{
-					MainForm window = new MainForm();
+					MainForm_profes window = new MainForm_profes();
 					window.frame.setVisible(true);
 				}
 				catch (Exception e)
@@ -36,7 +40,7 @@ public class MainForm
 		});
 	}
 
-	public MainForm()
+	public MainForm_profes()
 	{
 		initialize();
 	}
@@ -45,21 +49,20 @@ public class MainForm
 	{
 		
 		Proxy.autenticar();
-
+		
 		frame = new JFrame();
-		frame.setBounds(400, 200, 1000, 700);
+		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		mapViewer = new JMapViewer();
-		mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles",1,12));
-		mapViewer.setZoomContolsVisible(false);
-		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
+		miMapa = new JMapViewer();
+		miMapa.setZoomContolsVisible(false);
+		miMapa.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
 
 		// Ponemos un marcador!
 		MapMarker marker = new MapMarkerDot(-34.521, -58.7008);
 		marker.getStyle().setBackColor(Color.RED);
-		mapViewer.addMapMarker(marker);
+		miMapa.addMapMarker(marker);
 		
 		// Ahora un polígono!
 		ArrayList<Coordinate> coordenadas = new ArrayList<Coordinate>();
@@ -70,12 +73,12 @@ public class MainForm
 		coordenadas.add(new Coordinate(-34.532, -58.730));
 		
 		MapPolygon polygon = new MapPolygonImpl(coordenadas);
-		mapViewer.addMapPolygon(polygon);
+		miMapa.addMapPolygon(polygon);
 		
 		// Y un marcador en cada vértice del polígono!
 		for(Coordinate c: coordenadas)
-			mapViewer.addMapMarker(new MapMarkerDot(c));
+			miMapa.addMapMarker(new MapMarkerDot(c));
 		
-		frame.setContentPane(mapViewer);
+		frame.setContentPane(miMapa);
 	}
 }
