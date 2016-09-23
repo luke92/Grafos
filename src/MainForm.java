@@ -1,20 +1,12 @@
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.io.File;
-import java.io.IOException;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.JFrame;
 
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
-import org.openstreetmap.gui.jmapviewer.OsmFileCacheTileLoader;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapMarker;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 

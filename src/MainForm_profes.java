@@ -1,7 +1,5 @@
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
