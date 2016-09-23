@@ -8,7 +8,7 @@ public class Proxy
 	public static void autenticar()
 	{
 		final String authUser = "lvargas1";
-		final String authPassword = "Luk3jv03";
+		final String authPassword = "Luk3jv04";
 		Authenticator.setDefault(
 		   new Authenticator() {
 		      @Override
