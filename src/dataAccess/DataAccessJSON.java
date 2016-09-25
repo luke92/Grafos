@@ -12,16 +12,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import domain.Coordinate;
-import domain.Coordinates;
 
 public class DataAccessJSON 
 {
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Coordinate> readJSON(String filename)
 	{
-		
-		Gson gson = new Gson();
-		Coordinates ret = null;
 		ArrayList<Coordinate> lcs = null;
 		
 		try

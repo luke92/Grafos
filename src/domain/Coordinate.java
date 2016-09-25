@@ -11,6 +11,16 @@ public class Coordinate
 		longitud = longitude;
 	}
 	
+	public double getLatitude()
+	{
+		return latitud;
+	}
+	
+	public double getLongitude()
+	{
+		return longitud;
+	}
+	
 	@Override
 	public String toString()
 	{

@@ -25,13 +25,23 @@ public class Coordinates implements Iterable<Coordinate>
 	}
 	
 	public void removeCoordinate(Coordinate coord)
+
 	{
 		_coordinates.remove(coord);
 	}
 	
+	public boolean containsCoordinate(Coordinate coord)
+	{
+		for (Coordinate c: _coordinates){
+			if(c.getLatitude()==coord.getLatitude() && c.getLongitude()==coord.getLongitude())
+				return true;
+		}
+		return false;
+	}
+	
 	public void readFile(String filename)
 	{
-		_coordinates = DataAccessJSON.readJSON(filename);
+		_coordinates= DataAccessJSON.readJSON(filename);
 	}
 	
 	public void writeFile(String filename)
@@ -52,7 +62,8 @@ public class Coordinates implements Iterable<Coordinate>
 	}
 
 	@Override
-	public Iterator<Coordinate> iterator() {
+	public Iterator<Coordinate> iterator()
+	{
 		return _coordinates.iterator();
 	}
 }
