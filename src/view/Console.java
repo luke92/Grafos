@@ -9,7 +9,7 @@ public class Console
 	{
 		Coordinates c = new Coordinates();
 		c.readFile("instancias/instancia1.json");
-//		System.out.println(c);
+		System.out.println(c);
 		
 		Coordinates c2 = new Coordinates();
 		c2.addCoordinate(new Coordinate(20.5, 20));
