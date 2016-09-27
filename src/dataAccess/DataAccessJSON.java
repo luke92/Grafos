@@ -1,6 +1,7 @@
 package dataAccess;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.lang.reflect.Type;
@@ -15,11 +16,16 @@ import domain.Coordinate;
 
 public class DataAccessJSON 
 {
+	private static boolean exists(String filename)
+	{
+		return new File(filename).exists();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Coordinate> readJSON(String filename)
 	{
 		ArrayList<Coordinate> lcs = null;
-		
+		if(!exists(filename)) return lcs;
 		try
 		{
 			BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -30,7 +36,7 @@ public class DataAccessJSON
 		return lcs;
 	}
 	
-	public static void writeJSON(String filename, ArrayList<Coordinate> coordinates)
+	public static boolean writeJSON(String filename, ArrayList<Coordinate> coordinates)
 	{
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(coordinates);
@@ -39,7 +45,8 @@ public class DataAccessJSON
 			FileWriter writer = new FileWriter(filename);
 			writer.write(json);
 			writer.close();
+			return true;
 		}
-		catch(Exception e) { e.printStackTrace(); }
+		catch(Exception e) { e.printStackTrace(); return false;}
 	}
 }

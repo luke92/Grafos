@@ -1,13 +1,10 @@
-package domain;
+package controller;
 
 import static org.junit.Assert.*;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import org.junit.Test;
+
+import domain.Coordinate;
 
 public class CoordinatesTest {
 	
@@ -21,14 +18,8 @@ public class CoordinatesTest {
 		return c;
 	}
 	
-	private File crearArchivo()
-	{
-		File a= new File("archivo.txt");
-		return a;
-	}
-	
 	@Test
-	public void addCoordinate()
+	public void addCoordinateTest()
 	{
 		Coordinates c= instancia();
 
@@ -44,7 +35,7 @@ public class CoordinatesTest {
 	}
 
 	@Test
-	public void removeCoordinate()
+	public void removeCoordinateTest()
 	{
 		Coordinates c= instancia();
 		
@@ -53,24 +44,4 @@ public class CoordinatesTest {
 		assertTrue( c.containsCoordinate( new Coordinate(20.5, 20)) );
 	}
 	
-	@Test
-	public void readFileTest()
-	{
-        File a= crearArchivo();
-        BufferedWriter bw;
-        try {
-			bw = new BufferedWriter(new FileWriter(a));
-			bw.write("El fichero de texto ya estaba creado.");
-		}
-        catch (IOException e) { e.printStackTrace(); }
-        
-        
-        assertTrue(a.canRead());
-	}
-	
-	@Test
-	public void writeFileTest()
-	{
-		
-	}
 }

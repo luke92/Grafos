@@ -1,7 +1,7 @@
 package view;
 
+import controller.Coordinates;
 import domain.Coordinate;
-import domain.Coordinates;
 
 public class Console 
 {

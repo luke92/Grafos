@@ -9,8 +9,8 @@ import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 
+import controller.Coordinates;
 import domain.Coordinate;
-import domain.Coordinates;
 import util.OfflineOsmTileSource;
 import util.Proxy;
 

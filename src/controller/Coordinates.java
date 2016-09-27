@@ -1,9 +1,10 @@
-package domain;
+package controller;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import dataAccess.DataAccessJSON;
+import domain.Coordinate;
 
 public class Coordinates implements Iterable<Coordinate>
 {
@@ -15,8 +16,14 @@ public class Coordinates implements Iterable<Coordinate>
 	}
 	
 	public Coordinates(ArrayList<Coordinate> coordinates)
+
 	{
 		_coordinates = coordinates;
+	}
+	
+	public Coordinates(String filename)
+	{
+		readFile(filename);
 	}
 	
 	public void addCoordinate(Coordinate coord)
@@ -33,20 +40,21 @@ public class Coordinates implements Iterable<Coordinate>
 	public boolean containsCoordinate(Coordinate coord)
 	{
 		for (Coordinate c: _coordinates){
-			if(c.getLatitude()==coord.getLatitude() && c.getLongitude()==coord.getLongitude())
-				return true;
+			if(c.equals(coord));
 		}
 		return false;
 	}
 	
-	public void readFile(String filename)
+	public boolean readFile(String filename)
 	{
 		_coordinates= DataAccessJSON.readJSON(filename);
+		if(_coordinates == null) return false;
+		return true;
 	}
 	
-	public void writeFile(String filename)
+	public boolean writeFile(String filename)
 	{
-		DataAccessJSON.writeJSON(filename, _coordinates);
+		return DataAccessJSON.writeJSON(filename, _coordinates);
 	}
 	
 	@Override
@@ -66,4 +74,5 @@ public class Coordinates implements Iterable<Coordinate>
 	{
 		return _coordinates.iterator();
 	}
+	
 }
