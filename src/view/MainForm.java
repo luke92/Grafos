@@ -45,7 +45,7 @@ public class MainForm {
 		frame.getContentPane().setLayout(null);
 
 		mapViewer = new JMapViewer();
-		mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 12));
+		mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
 		mapViewer.setZoomContolsVisible(false);
 		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
 
