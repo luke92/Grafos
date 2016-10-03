@@ -11,6 +11,11 @@ import controller.Coordinates;
 import domain.Coordinate;
 import util.OfflineOsmTileSource;
 import util.Proxy;
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.awt.event.ActionEvent;
 
 public class MainForm {
 	private JFrame frame;
@@ -33,9 +38,10 @@ public class MainForm {
 		initialize();
 	}
 
-	private void initialize() {
+	private void initialize() 
+	{
 
-		Proxy.autenticar();
+		//Proxy.autenticar();
 
 		frame = new JFrame();
 		frame.setBounds(400, 200, 1000, 700);
@@ -43,7 +49,7 @@ public class MainForm {
 		frame.getContentPane().setLayout(null);
 
 		mapViewer = new JMapViewer();
-		mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
+		//mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
 		mapViewer.setZoomContolsVisible(false);
 		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
 
@@ -57,5 +63,33 @@ public class MainForm {
 		}
 
 		frame.setContentPane(mapViewer);
+		
+		JButton btnAbrirInstancias = new JButton("Abrir Instancias");
+		btnAbrirInstancias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				//Seleccionar archivos
+				List<String> rutas = OpenFilesForm.getPathSelectFiles(mapViewer);
+				for(String x : rutas)
+					System.out.println(x);
+				//cargarlos
+			}
+		});
+		btnAbrirInstancias.setBounds(817, 11, 157, 23);
+		mapViewer.add(btnAbrirInstancias);
+		
+		JButton btnBorrarMarcadores = new JButton("Borrar Marcadores");
+		btnBorrarMarcadores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				mapViewer.removeAllMapMarkers();
+				mapViewer.removeAllMapPolygons();
+				mapViewer.removeAllMapRectangles();
+				
+			}
+		});
+		btnBorrarMarcadores.setBounds(817, 45, 157, 23);
+		mapViewer.add(btnBorrarMarcadores);
 	}
+	
 }
