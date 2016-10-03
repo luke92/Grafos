@@ -8,7 +8,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  
 public class EjemploJFileChooser extends JFrame {
  
-    private JPanel contentPane;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
     private JTextField textField;
     private JTextArea textArea;
  
