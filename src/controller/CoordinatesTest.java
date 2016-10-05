@@ -3,7 +3,6 @@ package controller;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
 import domain.Coordinate;
 
 public class CoordinatesTest {

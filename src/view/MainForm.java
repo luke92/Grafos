@@ -4,21 +4,25 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import domain.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
+import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
+import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
+import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 
 import controller.Coordinates;
-import domain.Coordinate;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class MainForm {
 	private JFrame frame;
 	private JMapViewer mapViewer;
-
+	List<Coordinates> listCoords;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,8 +50,7 @@ public class MainForm {
 		frame.getContentPane().setLayout(null);
 
 		mapViewer = new JMapViewer();
-		// mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles",
-		// 1, 18));
+		// mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
 		mapViewer.setZoomContolsVisible(false);
 		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
 
@@ -56,35 +59,53 @@ public class MainForm {
 		JButton btnAbrirInstancias = new JButton("Abrir Instancias");
 		btnAbrirInstancias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Seleccionar archivos
-				List<String> rutas = OpenFilesForm.getPathSelectFiles(mapViewer);
-				Coordinates coordenadas = new Coordinates();
-				for (String x : rutas) {
-					coordenadas.readFile(x);
-					for (Coordinate coord : coordenadas) {
-						double lat = coord.getLatitude();
-						double lon = coord.getLongitude();
-						mapViewer.addMapMarker(new MapMarkerDot(lat, lon));
-					}
-				}
+				cargarCoordenadas();
 			}
 		});
 
 		btnAbrirInstancias.setBounds(817, 11, 157, 23);
 		mapViewer.add(btnAbrirInstancias);
+		
 
 		JButton btnBorrarMarcadores = new JButton("Borrar Marcadores");
 		btnBorrarMarcadores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				mapViewer.removeAllMapMarkers();
-				mapViewer.removeAllMapPolygons();
-				mapViewer.removeAllMapRectangles();
-
+				borrarObjetosMapa();
 			}
 		});
 
 		btnBorrarMarcadores.setBounds(817, 45, 157, 23);
 		mapViewer.add(btnBorrarMarcadores);
+		
+		
+	}
+	
+	private void cargarCoordenadas()
+	{
+		listCoords = OpenFilesForm.getListCoordinates(mapViewer);
+		for(Coordinates coords : listCoords)
+		{
+			for(Coordinate c : coords)
+				mapViewer.addMapMarker(new MapMarkerDot(c.getLat(), c.getLon()));
+		}
+		dibujarPoligonos();
+	}
+	
+	private void borrarObjetosMapa()
+	{
+		mapViewer.removeAllMapMarkers();
+		mapViewer.removeAllMapPolygons();
+		mapViewer.removeAllMapRectangles();
+		listCoords = new ArrayList<Coordinates>();
+	}
+	
+	private void dibujarPoligonos()
+	{
+		for(Coordinates coords : listCoords)
+		{
+			MapPolygon polygon = new MapPolygonImpl(coords.getCoords());
+			mapViewer.addMapPolygon(polygon);
+		}
 	}
 
 }

@@ -54,7 +54,7 @@ public class MainForm_profes {
 		marker.getStyle().setBackColor(Color.RED);
 		miMapa.addMapMarker(marker);
 
-		// Ahora un polígono!
+		// Ahora un polï¿½gono!
 		ArrayList<Coordinate> coordenadas = new ArrayList<Coordinate>();
 		coordenadas.add(new Coordinate(-34.532, -58.7128));
 		coordenadas.add(new Coordinate(-34.546, -58.719));
@@ -65,7 +65,7 @@ public class MainForm_profes {
 		MapPolygon polygon = new MapPolygonImpl(coordenadas);
 		miMapa.addMapPolygon(polygon);
 
-		// Y un marcador en cada vértice del polígono!
+		// Y un marcador en cada vï¿½rtice del polï¿½gono!
 		for (Coordinate c : coordenadas)
 			miMapa.addMapMarker(new MapMarkerDot(c));
 

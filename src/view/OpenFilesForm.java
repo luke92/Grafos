@@ -13,11 +13,20 @@ import controller.Coordinates;
 public class OpenFilesForm {
 	static List<String> archivos;
 
-	public static Coordinates getCoordinates() {
-		return null;
+	public static List<Coordinates> getListCoordinates(Component contentPane) 
+	{
+		List<String> rutas = OpenFilesForm.getPathSelectFiles(contentPane);
+		List<Coordinates> listCoordinates = new ArrayList<Coordinates>();
+		for (String x : rutas) 
+		{
+			Coordinates coords = new Coordinates();
+			coords.readFile(x);
+			listCoordinates.add(coords);
+		}
+		return listCoordinates;
 	}
 
-	public static List<String> getPathSelectFiles(Component contentPane) {
+	private static List<String> getPathSelectFiles(Component contentPane) {
 		// returns the current working directory as a String
 		String rutaProjecto = System.getProperty("user.dir");
 

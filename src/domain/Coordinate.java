@@ -1,6 +1,8 @@
 package domain;
 
-public class Coordinate 
+import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
+
+public class Coordinate implements ICoordinate
 {
 	private double latitud;
 	private double longitud;
@@ -11,14 +13,26 @@ public class Coordinate
 		longitud = longitude;
 	}
 	
-	public double getLatitude()
+	@Override
+	public double getLat()
 	{
 		return latitud;
 	}
 	
-	public double getLongitude()
+	@Override
+	public double getLon()
 	{
 		return longitud;
+	}
+	
+	@Override
+	public void setLat(double latitude) {
+		latitud = latitude;
+	}
+
+	@Override
+	public void setLon(double longitude) {
+		longitud = longitude;
 	}
 	
 	@Override
@@ -55,6 +69,5 @@ public class Coordinate
 			return false;
 		return true;
 	}
-	
-	
+
 }
