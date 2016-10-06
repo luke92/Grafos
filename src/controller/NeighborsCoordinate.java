@@ -1,11 +1,43 @@
 package controller;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import domain.Coordinate;
 
 public class NeighborsCoordinate {
-	Coordinate coord;
-	ArrayList<Coordinate> vecinosCoord;
+	private Coordinate coord;
+	private Set<Coordinate> neighborsCoordinate;
+	
+	public NeighborsCoordinate(Coordinate coord)
+	{
+		this.coord = coord;
+		neighborsCoordinate = new HashSet<Coordinate>();
+	}
+	
+	public void addNeighbor(Coordinate otherCoord)
+	{
+		neighborsCoordinate.add(otherCoord);
+	}
+	
+	public void removeNeighbor(Coordinate otherCoord)
+	{
+		neighborsCoordinate.remove(otherCoord);
+	}
+	
+	public int size()
+	{
+		return neighborsCoordinate.size();
+	}
+	
+	public boolean contains(Coordinate coord)
+	{
+		return neighborsCoordinate.contains(coord);
+	}
+	
+	public boolean equals(Coordinate coord)
+	{
+		return this.coord.equals(coord);
+	}
 
 }
