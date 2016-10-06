@@ -24,7 +24,6 @@ public class MainForm {
 	private JFrame frame;
 	private JMapViewer mapViewer;
 	List<Coordinates> listCoords;
-	Grafo g;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -94,14 +93,13 @@ public class MainForm {
 		mapViewer.removeAllMapMarkers();
 		mapViewer.removeAllMapPolygons();
 		mapViewer.removeAllMapRectangles();
-		listCoords = new ArrayList<Coordinates>();
+		listCoords= new ArrayList<Coordinates>();
 	}
 
 	private void dibujarPoligonos() 
 	{
 		for (Coordinates coords : listCoords) {
-			 
-			MapPolygon polygon = new MapPolygonImpl(coords.getCoords());
+			MapPolygon polygon= new MapPolygonImpl(coords.getCoords());
 			mapViewer.addMapPolygon(polygon);
 		}
 	}
