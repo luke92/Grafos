@@ -5,10 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import domain.Coordinate;
+import grafo.Grafo;
+
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
-import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 
 import controller.Coordinates;
@@ -23,6 +24,8 @@ public class MainForm {
 	private JFrame frame;
 	private JMapViewer mapViewer;
 	List<Coordinates> listCoords;
+	Grafo g;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,8 +43,8 @@ public class MainForm {
 		initialize();
 	}
 
-	private void initialize() {
-
+	private void initialize() 
+	{
 		// Proxy.autenticar();
 
 		frame = new JFrame();
@@ -53,7 +56,7 @@ public class MainForm {
 		// mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
 		mapViewer.setZoomContolsVisible(false);
 		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
-
+		
 		frame.setContentPane(mapViewer);
 
 		JButton btnAbrirInstancias = new JButton("Abrir Instancias");
@@ -65,7 +68,6 @@ public class MainForm {
 
 		btnAbrirInstancias.setBounds(817, 11, 157, 23);
 		mapViewer.add(btnAbrirInstancias);
-		
 
 		JButton btnBorrarMarcadores = new JButton("Borrar Marcadores");
 		btnBorrarMarcadores.addActionListener(new ActionListener() {
@@ -76,33 +78,29 @@ public class MainForm {
 
 		btnBorrarMarcadores.setBounds(817, 45, 157, 23);
 		mapViewer.add(btnBorrarMarcadores);
-		
-		
 	}
-	
-	private void cargarCoordenadas()
+
+	private void cargarCoordenadas() 
 	{
 		listCoords = OpenFilesForm.getListCoordinates(mapViewer);
-		for(Coordinates coords : listCoords)
-		{
-			for(Coordinate c : coords)
-				mapViewer.addMapMarker(new MapMarkerDot(c.getLat(), c.getLon()));
-		}
+		for (Coordinates coords : listCoords)
+				for (Coordinate c : coords)
+					mapViewer.addMapMarker(new MapMarkerDot(c.getLat(), c.getLon()));
 		dibujarPoligonos();
 	}
-	
-	private void borrarObjetosMapa()
+
+	private void borrarObjetosMapa() 
 	{
 		mapViewer.removeAllMapMarkers();
 		mapViewer.removeAllMapPolygons();
 		mapViewer.removeAllMapRectangles();
 		listCoords = new ArrayList<Coordinates>();
 	}
-	
-	private void dibujarPoligonos()
+
+	private void dibujarPoligonos() 
 	{
-		for(Coordinates coords : listCoords)
-		{
+		for (Coordinates coords : listCoords) {
+			 
 			MapPolygon polygon = new MapPolygonImpl(coords.getCoords());
 			mapViewer.addMapPolygon(polygon);
 		}
