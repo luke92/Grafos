@@ -39,5 +39,15 @@ public class NeighborsCoordinate {
 	{
 		return this.coord.equals(coord);
 	}
+	
+	public double distanceCoord(Coordinate coord)
+	{
+		return Coordinates.distanceCoord(this.coord, coord);
+	}
+	
+	public Coordinate getCoordinate()
+	{
+		return coord;
+	}
 
 }
