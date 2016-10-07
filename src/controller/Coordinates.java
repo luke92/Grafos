@@ -78,7 +78,19 @@ public class Coordinates implements Iterable<Coordinate> {
 	{
 		return _coordinates.iterator();
 	}
-
+	
+	public Coordinate get(int index)
+	{
+		if(index < 0 || index > size())
+			throw new RuntimeException("Indice fuera del rango: " + index);
+		return _coordinates.get(index);
+	}
+	
+	public int size()
+	{
+		return _coordinates.size();
+	}
+	
 	public static double distanceCoord(Coordinate coord1, Coordinate coord2)
 	{
 		double radioTierra = 6371; // en kil�metros

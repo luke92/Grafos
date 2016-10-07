@@ -1,11 +1,12 @@
 package controller;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import domain.Coordinate;
 
-public class NeighborsCoordinate {
+public class NeighborsCoordinate implements Iterable<Coordinate> {
 	private Coordinate coord;
 	private Set<Coordinate> neighborsCoordinate;
 	
@@ -45,9 +46,17 @@ public class NeighborsCoordinate {
 		return Coordinates.distanceCoord(this.coord, coord);
 	}
 	
+	
+	
 	public Coordinate getCoordinate()
 	{
 		return coord;
+	}
+
+	
+	@Override
+	public Iterator<Coordinate> iterator() {
+		return neighborsCoordinate.iterator();
 	}
 
 }

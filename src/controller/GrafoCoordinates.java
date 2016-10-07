@@ -6,11 +6,13 @@ import domain.Coordinate;
 
 public class GrafoCoordinates 
 {
+	private Coordinates coordinates;
 	private ArrayList<NeighborsCoordinate> vertices;
 	private int aristas;
 	
 	public GrafoCoordinates(Coordinates coords)
 	{
+		coordinates = coords;
 		vertices = new ArrayList<NeighborsCoordinate>();
 		aristas = 0;
 		for(Coordinate coord: coords)
@@ -85,13 +87,23 @@ public class GrafoCoordinates
 		return aristas;
 	}
 	
-	public int vertices()
+	public Coordinates vertices()
 	{
-		return vertices.size();
+		return coordinates;
 	}
 	
 	public double distanceCoord(Coordinate coord1, Coordinate coord2)
 	{
 		return Coordinates.distanceCoord(coord1, coord2);
+	}
+	
+	public NeighborsCoordinate vecinos(Coordinate coord)
+	{
+		for(NeighborsCoordinate n : vertices)
+		{
+			if(n.equals(coord))
+				return n;
+		}
+		return null;
 	}
 }
