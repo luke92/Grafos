@@ -52,7 +52,8 @@ public class NeighborsCoordinate implements Iterable<Coordinate> {
 	}
 	
 	@Override
-	public Iterator<Coordinate> iterator() {
+	public Iterator<Coordinate> iterator()
+	{
 		return neighborsCoordinate.iterator();
 	}
 
