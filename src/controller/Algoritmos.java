@@ -6,11 +6,10 @@ public class Algoritmos
 {
 	public static GrafoCoordinates AGM(GrafoCoordinates grafo)
 	{
-		GrafoCoordinates resultado = new GrafoCoordinates(grafo.vertices());
-		NeighborsCoordinate amarillos = new NeighborsCoordinate(grafo.vertices().get(0));
+		GrafoCoordinates resultado = new GrafoCoordinates( grafo.vertices() );
+		NeighborsCoordinate amarillos = new NeighborsCoordinate( grafo.vertices().get(0) );
 		
-		for(int i = 0; i < grafo.vertices().size(); i++)
-		{
+		for(int i = 0; i < grafo.vertices().size(); i++) {
 			Arista a = menorArista(grafo, amarillos); // De un amarillo a un negro
 			resultado.addArista(a.amarillo, a.negro);
 			amarillos.addNeighbor(a.negro);
@@ -50,16 +49,13 @@ public class Algoritmos
 	
 	static Arista menorArista(GrafoCoordinates grafo, NeighborsCoordinate amarillos)
 	{
-		Arista ret = new Arista(null, null,Double.MAX_VALUE);
-		
-		for(Coordinate i: amarillos)
-			for(Coordinate j: grafo.vecinos(i)) 
-				if( amarillos.contains(j) == false )
-				{
-					if( grafo.distanceCoord(i, j) < ret.peso )
-						ret = new Arista(i, j, grafo.distanceCoord(i, j));
-				}
-		
-				return ret;
+		Arista ret = new Arista(null, null, Double.MAX_VALUE);
+
+		for (Coordinate i : amarillos)
+		for (Coordinate j : grafo.vecinos(i))
+			if ( !amarillos.contains(j) && grafo.distanceCoord(i, j)<ret.peso )
+				ret = new Arista(i, j, grafo.distanceCoord(i, j));
+
+		return ret;
 	}
 }

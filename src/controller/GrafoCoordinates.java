@@ -24,14 +24,10 @@ public class GrafoCoordinates
 		esBucle(coord1,coord2);
 		int posCoord1 = indexVertice(coord1);
 		int posCoord2 = indexVertice(coord2);
-		if(posCoord1 >= 0 && posCoord2 >= 0)
-		{
-			if(!contieneArista(coord1,coord2))
-			{
-				vertices.get(posCoord1).addNeighbor(coord2);
-				vertices.get(posCoord2).addNeighbor(coord1);
-				aristas++;
-			}
+		if (posCoord1 >= 0 && posCoord2 >= 0 && !contieneArista(coord1, coord2)) {
+			vertices.get(posCoord1).addNeighbor(coord2);
+			vertices.get(posCoord2).addNeighbor(coord1);
+			aristas++;
 		}
 	}
 	
@@ -40,12 +36,10 @@ public class GrafoCoordinates
 		esBucle(coord1, coord2);
 		int posCoord1 = indexVertice(coord1);
 		int posCoord2 = indexVertice(coord2);
-		if(posCoord1 >= 0 && posCoord2 >= 0){
-			if(contieneArista(coord1,coord2)){
-				vertices.get(posCoord1).removeNeighbor(coord2);
-				vertices.get(posCoord2).removeNeighbor(coord1);
-				aristas--;
-			}
+		if (posCoord1 >= 0 && posCoord2 >= 0 && contieneArista(coord1, coord2)) {
+			vertices.get(posCoord1).removeNeighbor(coord2);
+			vertices.get(posCoord2).removeNeighbor(coord1);
+			aristas--;
 		}
 	}
 	
@@ -55,16 +49,17 @@ public class GrafoCoordinates
 		int posCoord2 = indexVertice(coord2);
 		if(posCoord1 >= 0 && posCoord2 >= 0)
 			return vertices.get(posCoord1).contains(coord2);
+		
 		return false;
 	}
 	
 	private int indexVertice(Coordinate coord)
 	{
-		for(int i = 0; i < vertices.size(); i++)
-		{
+		for(int i = 0; i < vertices.size(); i++) {
 			if(vertices.get(i).equals(coord))
 				return i;
 		}
+		
 		return -1;
 	}
 	
@@ -73,6 +68,7 @@ public class GrafoCoordinates
 		int posCoord = indexVertice(coord);
 		if(posCoord >= 0)
 			return vertices.get(posCoord).size();
+		
 		return -1;
 	}
 	
@@ -99,8 +95,7 @@ public class GrafoCoordinates
 	
 	public NeighborsCoordinate vecinos(Coordinate coord)
 	{
-		for(NeighborsCoordinate n : vertices)
-		{
+		for(NeighborsCoordinate n : vertices) {
 			if(n.equals(coord))
 				return n;
 		}

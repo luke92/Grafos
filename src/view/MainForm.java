@@ -42,8 +42,7 @@ public class MainForm {
 		initialize();
 	}
 
-	private void initialize() 
-	{
+	private void initialize() {
 		// Proxy.autenticar();
 
 		frame = new JFrame();
@@ -55,7 +54,7 @@ public class MainForm {
 		// mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
 		mapViewer.setZoomContolsVisible(false);
 		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
-		
+
 		frame.setContentPane(mapViewer);
 
 		JButton btnAbrirInstancias = new JButton("Abrir Instancias");
@@ -83,8 +82,9 @@ public class MainForm {
 	{
 		listCoords = OpenFilesForm.getListCoordinates(mapViewer);
 		for (Coordinates coords : listCoords)
-				for (Coordinate c : coords)
-					mapViewer.addMapMarker(new MapMarkerDot(c.getLat(), c.getLon()));
+			for (Coordinate c : coords)
+				mapViewer.addMapMarker(new MapMarkerDot(c.getLat(), c.getLon()));
+		
 		dibujarPoligonos();
 	}
 
@@ -93,13 +93,13 @@ public class MainForm {
 		mapViewer.removeAllMapMarkers();
 		mapViewer.removeAllMapPolygons();
 		mapViewer.removeAllMapRectangles();
-		listCoords= new ArrayList<Coordinates>();
+		listCoords = new ArrayList<Coordinates>();
 	}
 
 	private void dibujarPoligonos() 
 	{
 		for (Coordinates coords : listCoords) {
-			MapPolygon polygon= new MapPolygonImpl(coords.getCoords());
+			MapPolygon polygon = new MapPolygonImpl(coords.getCoords());
 			mapViewer.addMapPolygon(polygon);
 		}
 	}

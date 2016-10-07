@@ -14,6 +14,7 @@ public class CoordinatesTest {
 		c.addCoordinate(new Coordinate(40,40));
 		c.addCoordinate(new Coordinate(60,60));
 		c.addCoordinate(new Coordinate(-34.58, -58.34));
+		
 		return c;
 	}
 	

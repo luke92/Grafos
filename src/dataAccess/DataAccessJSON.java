@@ -33,6 +33,7 @@ public class DataAccessJSON
 			lcs = (ArrayList<Coordinate>) new Gson().fromJson( br , collectionType);
 		}
 		catch (Exception e) { e.printStackTrace(); }
+		
 		return lcs;
 	}
 	
@@ -47,6 +48,9 @@ public class DataAccessJSON
 			writer.close();
 			return true;
 		}
-		catch(Exception e) { e.printStackTrace(); return false;}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

@@ -46,13 +46,10 @@ public class NeighborsCoordinate implements Iterable<Coordinate> {
 		return Coordinates.distanceCoord(this.coord, coord);
 	}
 	
-	
-	
 	public Coordinate getCoordinate()
 	{
 		return coord;
 	}
-
 	
 	@Override
 	public Iterator<Coordinate> iterator() {

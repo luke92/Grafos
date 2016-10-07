@@ -13,8 +13,7 @@ public class Algoritmos
 		Set<Integer> amarillos = new HashSet<Integer>();
 		amarillos.add(0); // Cualquiera
 		
-		for(int i=0; i<grafo.vertices()-1; ++i)
-		{
+		for(int i=0; i<grafo.vertices()-1; ++i) {
 			Arista a = menorArista(grafo, amarillos); // De un amarillo a un negro
 			resultado.agregarArista(a.amarillo, a.negro, a.peso);
 			amarillos.add(a.negro);
@@ -47,6 +46,7 @@ public class Algoritmos
 				return false;
 			
 			Arista otra = (Arista) obj;
+			
 			return amarillo == otra.amarillo && negro == otra.negro;
 		}		
 	}
@@ -57,11 +57,9 @@ public class Algoritmos
 		Arista ret = new Arista(0, 0, Double.MAX_VALUE);
 		
 		for(Integer i: amarillos)
-		for(Integer j: grafo.vecinos(i)) if( amarillos.contains(j) == false )
-		{
-			if( grafo.getPeso(i, j) < ret.peso )
+		for(Integer j: grafo.vecinos(i))
+			if( amarillos.contains(j) == false && grafo.getPeso(i, j) < ret.peso )
 				ret = new Arista(i, j, grafo.getPeso(i, j));
-		}
 		
 		return ret;
 	}

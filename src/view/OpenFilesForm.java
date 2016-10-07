@@ -17,8 +17,7 @@ public class OpenFilesForm {
 	{
 		List<String> rutas = OpenFilesForm.getPathSelectFiles(contentPane);
 		List<Coordinates> listCoordinates = new ArrayList<Coordinates>();
-		for (String x : rutas) 
-		{
+		for (String x : rutas) {
 			Coordinates coords = new Coordinates();
 			coords.readFile(x);
 			listCoordinates.add(coords);
@@ -26,7 +25,8 @@ public class OpenFilesForm {
 		return listCoordinates;
 	}
 
-	private static List<String> getPathSelectFiles(Component contentPane) {
+	private static List<String> getPathSelectFiles(Component contentPane) 
+	{
 		// returns the current working directory as a String
 		String rutaProjecto = System.getProperty("user.dir");
 

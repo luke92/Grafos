@@ -50,6 +50,7 @@ public class Coordinate implements ICoordinate
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(longitud);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		
 		return result;
 	}
 
@@ -67,6 +68,7 @@ public class Coordinate implements ICoordinate
 			return false;
 		if (Double.doubleToLongBits(longitud) != Double.doubleToLongBits(other.longitud))
 			return false;
+		
 		return true;
 	}
 

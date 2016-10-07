@@ -42,9 +42,10 @@ public class Coordinates implements Iterable<Coordinate> {
 
 	public boolean containsCoordinate(Coordinate coord)
 	{
-		for (Coordinate c : _coordinates) {
-			if (c.equals(coord));
-		}
+		for (Coordinate c : _coordinates)
+			if (c.equals(coord))
+				return true;
+
 		return false;
 	}
 
@@ -65,8 +66,7 @@ public class Coordinates implements Iterable<Coordinate> {
 	public String toString()
 	{
 		String ret = "";
-		for (Coordinate coord : _coordinates)
-		{
+		for (Coordinate coord : _coordinates){
 			ret += coord;
 			ret += "\n";
 		}
@@ -81,7 +81,7 @@ public class Coordinates implements Iterable<Coordinate> {
 	
 	public Coordinate get(int index)
 	{
-		if(index < 0 || index > size())
+		if( index < 0 || index > size() )
 			throw new RuntimeException("Indice fuera del rango: " + index);
 		return _coordinates.get(index);
 	}
