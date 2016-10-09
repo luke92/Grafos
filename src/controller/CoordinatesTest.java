@@ -41,7 +41,7 @@ public class CoordinatesTest {
 		
 		assertTrue( c.containsCoordinate( new Coordinate(20.5, 20)) );
 		c.removeCoordinate( new Coordinate(20.5, 20) );
-		assertTrue( c.containsCoordinate( new Coordinate(20.5, 20)) );
+		assertFalse( c.containsCoordinate( new Coordinate(20.5, 20)) );
 	}
 	
 }

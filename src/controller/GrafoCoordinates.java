@@ -88,9 +88,9 @@ public class GrafoCoordinates
 		return coordinates;
 	}
 	
-	public double distanceCoord(Coordinate coord1, Coordinate coord2)
+	public double getPeso(Coordinate coord1, Coordinate coord2)
 	{
-		return Coordinates.distanceCoord(coord1, coord2);
+		return Coordinates.getPeso(coord1, coord2);
 	}
 	
 	public NeighborsCoordinate vecinos(Coordinate coord)

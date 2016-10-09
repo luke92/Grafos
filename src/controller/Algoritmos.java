@@ -53,8 +53,8 @@ public class Algoritmos
 
 		for (Coordinate i : amarillos)
 		for (Coordinate j : grafo.vecinos(i))
-			if ( !amarillos.contains(j) && grafo.distanceCoord(i, j)<ret.peso )
-				ret = new Arista(i, j, grafo.distanceCoord(i, j));
+			if ( !amarillos.contains(j) && grafo.getPeso(i, j)<ret.peso )
+				ret = new Arista(i, j, grafo.getPeso(i, j));
 
 		return ret;
 	}

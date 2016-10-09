@@ -91,7 +91,7 @@ public class Coordinates implements Iterable<Coordinate> {
 		return _coordinates.size();
 	}
 	
-	public static double distanceCoord(Coordinate coord1, Coordinate coord2)
+	public static double getPeso(Coordinate coord1, Coordinate coord2)
 	{
 		double radioTierra = 6371; // en kil�metros
 		double dLat = Math.toRadians(coord2.getLat() - coord1.getLat());

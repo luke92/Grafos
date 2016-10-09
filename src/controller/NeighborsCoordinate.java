@@ -41,9 +41,9 @@ public class NeighborsCoordinate implements Iterable<Coordinate> {
 		return this.coord.equals(coord);
 	}
 	
-	public double distanceCoord(Coordinate coord)
+	public double getPeso(Coordinate coord)
 	{
-		return Coordinates.distanceCoord(this.coord, coord);
+		return Coordinates.getPeso(this.coord, coord);
 	}
 	
 	public Coordinate getCoordinate()
