@@ -36,8 +36,8 @@ public class GrafoCoordinates
 		if(!contieneArista(coord1, coord2))
 			aristas++;
 		
-		vecinos.get(vecinos.indexOf(coord1)).add(coord2);
-		vecinos.get(vecinos.indexOf(coord2)).add(coord1);
+		vecinos.get(posCoord(coord1)).add(coord2);
+		vecinos.get(posCoord(coord2)).add(coord1);
 		
 	}
 	
@@ -48,8 +48,8 @@ public class GrafoCoordinates
 		if(contieneArista(coord1, coord2))
 			aristas--;
 		
-		vecinos.get(vecinos.indexOf(coord1)).remove(coord2);
-		vecinos.get(vecinos.indexOf(coord2)).remove(coord1);
+		vecinos.get(posCoord(coord1)).remove(coord2);
+		vecinos.get(posCoord(coord2)).remove(coord1);
 		
 		
 	}
@@ -57,20 +57,20 @@ public class GrafoCoordinates
 	public boolean contieneArista(Coordinate coord1, Coordinate coord2)
 	{
 		chequearExtremos(coord1, coord2);
-		return vecinos.get(vecinos.indexOf(coord1)).contains(coord2);
+		return vecinos.get(posCoord(coord1)).contains(coord2);
 	}
 	
 	private void chequearExtremos(Coordinate coord1, Coordinate coord2)
 	{
-		if(vecinos.indexOf(coord1) < 0 || vecinos.indexOf(coord2) < 0)
-			throw new IllegalArgumentException("Vertices fuera del rango: " + coord1 + coord2);
+		if(posCoord(coord1) == -1 || posCoord(coord2) == -1)
+			throw new IllegalArgumentException("Vertices inexistentes en el grafo: " + coord1 + coord2);
 		if(coord1.equals(coord2))
 			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1);
 	}
 	
 	public int gradoDelVertice(Coordinate coord)
 	{
-		int posCoord = vecinos.indexOf(coord);
+		int posCoord = posCoord(coord);
 		if(posCoord >= 0)
 			return vecinos.get(posCoord).size();
 		
@@ -98,11 +98,19 @@ public class GrafoCoordinates
 	{
 		for(NeighborsCoordinate n : vecinos) 
 		{
-			if(n.equals(coord))
+			if(n.getCoordinate().equals(coord))
 				return true;
 		}
-		return false;
-		
+		return false;		
+	}
+	
+	public int posCoord(Coordinate coord)
+	{
+		for(int i = 0; i < vecinos.size(); i++) {
+			if(vecinos.get(i).getCoordinate().equals(coord))
+				return i;
+		}
+		return -1;
 	}
 	
 }

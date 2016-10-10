@@ -62,21 +62,23 @@ public class GrafoCoordinatesTest {
 	public void contieneAristaTest()
 	{
 		GrafoCoordinates grafo = instanciaConAristas();
+		Coordinates coordenadas = instanciaCoordenadas();
 		
-		assertTrue( grafo.contieneArista(new Coordinate(-34.52, -58.70), new Coordinate(-70.52, -40.70)));
-		assertTrue( grafo.contieneArista(new Coordinate(-70.52, -40.70), new Coordinate(-96.52, -25.70)));
-		assertTrue( grafo.contieneArista(new Coordinate(-45.52, -15.70), new Coordinate(-34.52, -58.70)));
+		
+		assertTrue( grafo.contieneArista(coordenadas.get(0), coordenadas.get(1)));
+		assertTrue( grafo.contieneArista(coordenadas.get(1), coordenadas.get(2)));
+		assertTrue( grafo.contieneArista(coordenadas.get(2), coordenadas.get(0)));
 	}
 
 	@Test
 	public void getPesoTest()
 	{
 		GrafoCoordinates grafo = instanciaConAristas();
+		Coordinates coordenadas = instanciaCoordenadas();
 		
-		assertEquals( 4146.364904306314, grafo.getPeso(new Coordinate(-34.52, -58.70), new Coordinate(-70.52, -40.70)), 1e-4 );
-		assertEquals( 2872.12105901625, grafo.getPeso(new Coordinate(-96.52, -25.70), new Coordinate(-70.52, -40.70)), 1e-4 );
-		assertEquals( 5660.753834519232, grafo.getPeso(new Coordinate(-96.52, -25.70), new Coordinate(-45.52, -15.70)), 1e-4 );
-		assertEquals( 3093.3207109309596, grafo.getPeso(new Coordinate(-70.52, -40.70), new Coordinate(-45.52, -15.70)), 1e-4 );
+		assertEquals( 4146.364904306314, grafo.getPeso(coordenadas.get(0), coordenadas.get(1)), 1e-4 );
+		assertNotEquals( 2872.12105901625, grafo.getPeso(coordenadas.get(1), coordenadas.get(2)), 1e-4 );
+		assertEquals( 5660.753834519232, grafo.getPeso(coordenadas.get(2), coordenadas.get(3)), 1e-4 );
 	}
 
 }

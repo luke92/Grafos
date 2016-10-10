@@ -35,12 +35,7 @@ public class NeighborsCoordinate implements Iterable<Coordinate> {
 	{
 		return neighborsCoordinate.contains(coord);
 	}
-	
-	public boolean equals(Coordinate coord)
-	{
-		return this.coord.equals(coord);
-	}
-	
+
 	public double getPeso(Coordinate coord)
 	{
 		return Coordinates.getPeso(this.coord, coord);
@@ -56,5 +51,36 @@ public class NeighborsCoordinate implements Iterable<Coordinate> {
 	{
 		return neighborsCoordinate.iterator();
 	}
+	
+	public boolean equals(Coordinate coord)
+	{
+		return this.coord.equals(coord);
+	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((coord == null) ? 0 : coord.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NeighborsCoordinate other = (NeighborsCoordinate) obj;
+		if (coord == null) {
+			if (other.coord != null)
+				return false;
+		} else if (!coord.equals(other.coord))
+			return false;
+		return true;
+	}	
+	
+	
 }

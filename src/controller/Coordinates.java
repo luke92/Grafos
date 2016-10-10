@@ -81,7 +81,7 @@ public class Coordinates implements Iterable<Coordinate> {
 	
 	public Coordinate get(int index)
 	{
-		if( index < 0 || index > size() )
+		if( index < 0 || index > size()-1 )
 			throw new RuntimeException("Indice fuera del rango: " + index);
 		return _coordinates.get(index);
 	}
