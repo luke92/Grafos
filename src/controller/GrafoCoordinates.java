@@ -62,7 +62,7 @@ public class GrafoCoordinates
 	
 	private void chequearExtremos(Coordinate coord1, Coordinate coord2)
 	{
-		if(posCoord(coord1) == -1 || posCoord(coord2) == -1)
+		if(!contieneCoordenada(coord1) || !contieneCoordenada(coord2))
 			throw new IllegalArgumentException("Vertices inexistentes en el grafo: " + coord1 + coord2);
 		if(coord1.equals(coord2))
 			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1);
