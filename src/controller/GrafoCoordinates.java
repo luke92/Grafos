@@ -63,7 +63,7 @@ public class GrafoCoordinates
 	private void chequearExtremos(Coordinate coord1, Coordinate coord2)
 	{
 		if(vecinos.indexOf(coord1) < 0 || vecinos.indexOf(coord2) < 0)
-			throw new IllegalArgumentException("Verices fuera del rango: " + coord1 + coord2);
+			throw new IllegalArgumentException("Vertices fuera del rango: " + coord1 + coord2);
 		if(coord1.equals(coord2))
 			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1);
 	}
@@ -92,6 +92,17 @@ public class GrafoCoordinates
 				return n;
 		}
 		return null;
+	}
+	
+	public boolean contieneCoordenada(Coordinate coord)
+	{
+		for(NeighborsCoordinate n : vecinos) 
+		{
+			if(n.equals(coord))
+				return true;
+		}
+		return false;
+		
 	}
 	
 }

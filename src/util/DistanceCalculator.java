@@ -36,6 +36,10 @@ public class DistanceCalculator
 		
 		System.out.println(distance(-34.52, -58.70,-70.52, -40.70, "K"));
 		
+		System.out.println(distance(-96.52, -25.70, -70.52, -40.70, "K"));
+		System.out.println(distance(-96.52, -25.70,-45.52, -15.70, "K"));
+		System.out.println(distance(-70.52, -40.70,-45.52, -15.70, "K"));
+		
 	}
 
 	public static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {
