@@ -11,8 +11,8 @@ public class Algoritmos
 		
 		for(int i = 0; i < grafo.vertices().size(); i++) {
 			Arista a = menorArista(grafo, amarillos); // De un amarillo a un negro
-			resultado.addArista(a.amarillo, a.negro);
-			amarillos.addNeighbor(a.negro);
+			resultado.agregarArista(a.amarillo, a.negro);
+			amarillos.add(a.negro);
 		}
 		
 		return resultado;

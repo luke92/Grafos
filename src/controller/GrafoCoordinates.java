@@ -6,76 +6,22 @@ import domain.Coordinate;
 
 public class GrafoCoordinates 
 {
-	private Coordinates coordinates;
-	private ArrayList<NeighborsCoordinate> vertices;
+	private ArrayList<NeighborsCoordinate> vecinos;
 	private int aristas;
 	
 	public GrafoCoordinates(Coordinates coords)
 	{
-		coordinates = coords;
-		vertices = new ArrayList<NeighborsCoordinate>();
+		if(coords.size() < 2) 
+			throw new IllegalArgumentException("No se puede crear un grafo con menos de 2 elementos");
+		vecinos = new ArrayList<NeighborsCoordinate>();
 		aristas = 0;
 		for(Coordinate coord: coords)
-			vertices.add(new NeighborsCoordinate(coord));
+			vecinos.add(new NeighborsCoordinate(coord));
 	}
 	
-	public void addArista(Coordinate coord1, Coordinate coord2)
+	public int vertices() //cantidadVertices
 	{
-		esBucle(coord1,coord2);
-		int posCoord1 = indexVertice(coord1);
-		int posCoord2 = indexVertice(coord2);
-		if (posCoord1 >= 0 && posCoord2 >= 0 && !contieneArista(coord1, coord2)) {
-			vertices.get(posCoord1).addNeighbor(coord2);
-			vertices.get(posCoord2).addNeighbor(coord1);
-			aristas++;
-		}
-	}
-	
-	public void removeArista(Coordinate coord1, Coordinate coord2)
-	{
-		esBucle(coord1, coord2);
-		int posCoord1 = indexVertice(coord1);
-		int posCoord2 = indexVertice(coord2);
-		if (posCoord1 >= 0 && posCoord2 >= 0 && contieneArista(coord1, coord2)) {
-			vertices.get(posCoord1).removeNeighbor(coord2);
-			vertices.get(posCoord2).removeNeighbor(coord1);
-			aristas--;
-		}
-	}
-	
-	public boolean contieneArista(Coordinate coord1, Coordinate coord2)
-	{
-		int posCoord1 = indexVertice(coord1);
-		int posCoord2 = indexVertice(coord2);
-		if(posCoord1 >= 0 && posCoord2 >= 0)
-			return vertices.get(posCoord1).contains(coord2);
-		
-		return false;
-	}
-	
-	private int indexVertice(Coordinate coord)
-	{
-		for(int i = 0; i < vertices.size(); i++) {
-			if(vertices.get(i).equals(coord))
-				return i;
-		}
-		
-		return -1;
-	}
-	
-	public int gradoDelVertice(Coordinate coord)
-	{
-		int posCoord = indexVertice(coord);
-		if(posCoord >= 0)
-			return vertices.get(posCoord).size();
-		
-		return -1;
-	}
-	
-	private void esBucle(Coordinate coord1, Coordinate coord2)
-	{
-		if(coord1.equals(coord2))
-			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1);
+		return vecinos.size();
 	}
 	
 	public int aristas()
@@ -83,22 +29,69 @@ public class GrafoCoordinates
 		return aristas;
 	}
 	
-	public Coordinates vertices()
+	public void agregarArista(Coordinate coord1, Coordinate coord2)
 	{
-		return coordinates;
+		chequearExtremos(coord1,coord2);
+		
+		if(!contieneArista(coord1, coord2))
+			aristas++;
+		
+		vecinos.get(vecinos.indexOf(coord1)).add(coord2);
+		vecinos.get(vecinos.indexOf(coord2)).add(coord1);
+		
+	}
+	
+	public void removerArista(Coordinate coord1, Coordinate coord2)
+	{
+		chequearExtremos(coord1, coord2);
+		
+		if(contieneArista(coord1, coord2))
+			aristas--;
+		
+		vecinos.get(vecinos.indexOf(coord1)).remove(coord2);
+		vecinos.get(vecinos.indexOf(coord2)).remove(coord1);
+		
+		
+	}
+	
+	public boolean contieneArista(Coordinate coord1, Coordinate coord2)
+	{
+		chequearExtremos(coord1, coord2);
+		return vecinos.get(vecinos.indexOf(coord1)).contains(coord2);
+	}
+	
+	private void chequearExtremos(Coordinate coord1, Coordinate coord2)
+	{
+		if(vecinos.indexOf(coord1) < 0 || vecinos.indexOf(coord2) < 0)
+			throw new IllegalArgumentException("Verices fuera del rango: " + coord1 + coord2);
+		if(coord1.equals(coord2))
+			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1);
+	}
+	
+	public int gradoDelVertice(Coordinate coord)
+	{
+		int posCoord = vecinos.indexOf(coord);
+		if(posCoord >= 0)
+			return vecinos.get(posCoord).size();
+		
+		return -1;
 	}
 	
 	public double getPeso(Coordinate coord1, Coordinate coord2)
 	{
+		if(!contieneArista(coord1, coord2))
+			throw new IllegalArgumentException("Se consulto el peso de una arista inexistente : " + coord1 + coord2);
+		
 		return Coordinates.getPeso(coord1, coord2);
 	}
 	
 	public NeighborsCoordinate vecinos(Coordinate coord)
 	{
-		for(NeighborsCoordinate n : vertices) {
+		for(NeighborsCoordinate n : vecinos) {
 			if(n.equals(coord))
 				return n;
 		}
 		return null;
 	}
+	
 }

@@ -22,14 +22,14 @@ public class AlgoritmosTest
 		coordenadas.addCoordinate(c4);
 		
 		GrafoCoordinates grafo = new GrafoCoordinates(new Coordinates());
-		grafo.addArista(coordenadas.get(0), coordenadas.get(1));
-		grafo.addArista(coordenadas.get(0), coordenadas.get(2));
-		grafo.addArista(coordenadas.get(0), coordenadas.get(3));
-		grafo.addArista(coordenadas.get(1), coordenadas.get(2));
-		grafo.addArista(coordenadas.get(2), coordenadas.get(3));
-		grafo.addArista(coordenadas.get(1), coordenadas.get(4));
-		grafo.addArista(coordenadas.get(2), coordenadas.get(4));
-		grafo.addArista(coordenadas.get(3), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(1));
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(2));
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(3));
+		grafo.agregarArista(coordenadas.get(1), coordenadas.get(2));
+		grafo.agregarArista(coordenadas.get(2), coordenadas.get(3));
+		grafo.agregarArista(coordenadas.get(1), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(2), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(3), coordenadas.get(4));
 		
 		return grafo;
 	}
@@ -40,7 +40,7 @@ public class AlgoritmosTest
 		GrafoCoordinates grafo = instancia();
 
 		NeighborsCoordinate amarillos = new NeighborsCoordinate(null);
-		amarillos.addNeighbor(grafo.vertices().get(0));
+		amarillos.add(grafo.vertices().get(0));
 		
 		Algoritmos.Arista arista= Algoritmos.menorArista(grafo, amarillos);
 		
@@ -53,9 +53,9 @@ public class AlgoritmosTest
 		GrafoCoordinates grafo = instancia();
 
 		NeighborsCoordinate amarillos = new NeighborsCoordinate(null);
-		amarillos.addNeighbor(grafo.vertices().get(0));
-		amarillos.addNeighbor(grafo.vertices().get(1));
-		amarillos.addNeighbor(grafo.vertices().get(2));
+		amarillos.add(grafo.vertices().get(0));
+		amarillos.add(grafo.vertices().get(1));
+		amarillos.add(grafo.vertices().get(2));
 		
 		Algoritmos.Arista arista = Algoritmos.menorArista(grafo, amarillos);
 		assertEquals(new Algoritmos.Arista(new Coordinate(-70.52, -40.70), new Coordinate(-24.52, -35.70), 5130.12), arista);

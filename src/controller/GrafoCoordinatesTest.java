@@ -24,10 +24,10 @@ public class GrafoCoordinatesTest {
 	{
 		GrafoCoordinates grafo = instancia();
 		
-		assertEquals( 4150.56, grafo.getPeso(grafo.vertices().get(0), grafo.vertices().get(1)), 1e-4 );
-		assertEquals( 6791.20, grafo.getPeso(grafo.vertices().get(3), grafo.vertices().get(1)), 1e-4 );
-		assertEquals( 5666.48, grafo.getPeso(grafo.vertices().get(3), grafo.vertices().get(2)), 1e-4 );
-		assertEquals( 3096.45, grafo.getPeso(grafo.vertices().get(1), grafo.vertices().get(2)), 1e-4 );
+		assertEquals( 4150.56, grafo.getPeso(new Coordinate(-34.52, -58.70), new Coordinate(-70.52, -40.70)), 1e-4 );
+		assertEquals( 6791.20, grafo.getPeso(new Coordinate(-96.52, -25.70), new Coordinate(-70.52, -40.70)), 1e-4 );
+		assertEquals( 5666.48, grafo.getPeso(new Coordinate(-96.52, -25.70), new Coordinate(-45.52, -15.70)), 1e-4 );
+		assertEquals( 3096.45, grafo.getPeso(new Coordinate(-70.52, -40.70), new Coordinate(-45.52, -15.70)), 1e-4 );
 	}
 
 	private GrafoCoordinates instancia() {
@@ -44,15 +44,15 @@ public class GrafoCoordinatesTest {
 		coordenadas.addCoordinate(c3);
 		coordenadas.addCoordinate(c4);
 		
-		GrafoCoordinates grafo = new GrafoCoordinates(new Coordinates());
-		grafo.addArista(coordenadas.get(0), coordenadas.get(1));
-		grafo.addArista(coordenadas.get(0), coordenadas.get(2));
-		grafo.addArista(coordenadas.get(0), coordenadas.get(3));
-		grafo.addArista(coordenadas.get(1), coordenadas.get(2));
-		grafo.addArista(coordenadas.get(2), coordenadas.get(3));
-		grafo.addArista(coordenadas.get(1), coordenadas.get(4));
-		grafo.addArista(coordenadas.get(2), coordenadas.get(4));
-		grafo.addArista(coordenadas.get(3), coordenadas.get(4));
+		GrafoCoordinates grafo = new GrafoCoordinates(coordenadas);
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(1));
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(2));
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(3));
+		grafo.agregarArista(coordenadas.get(1), coordenadas.get(2));
+		grafo.agregarArista(coordenadas.get(2), coordenadas.get(3));
+		grafo.agregarArista(coordenadas.get(1), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(2), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(3), coordenadas.get(4));
 		
 		return grafo;
 	}
