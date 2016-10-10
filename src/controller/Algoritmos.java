@@ -43,6 +43,11 @@ public class Algoritmos
 			return amarillo == otra.amarillo && negro == otra.negro;
 		}
 		
+		@Override
+		public String toString()
+		{
+			return amarillo + " " + negro + " " + peso;
+		}
 		// Retorna la arista de menor peso entre un vertice amarillo y uno no amarillo
 		
 	}

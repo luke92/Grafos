@@ -16,9 +16,11 @@ import controller.Coordinates;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
 
 public class MainForm {
 	private JFrame frame;
@@ -51,6 +53,12 @@ public class MainForm {
 		frame.getContentPane().setLayout(null);
 
 		mapViewer = new JMapViewer();
+		mapViewer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println(mapViewer.getPosition(e.getPoint()));
+			}
+		});
 		// mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
 		mapViewer.setZoomContolsVisible(false);
 		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
@@ -77,7 +85,7 @@ public class MainForm {
 		btnBorrarMarcadores.setBounds(817, 45, 157, 23);
 		mapViewer.add(btnBorrarMarcadores);
 	}
-
+	
 	private void cargarCoordenadas() 
 	{
 		listCoords = OpenFilesForm.getListCoordinates(mapViewer);

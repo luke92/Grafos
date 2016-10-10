@@ -66,6 +66,7 @@ public class GrafoCoordinatesTest {
 		assertTrue( grafo.contieneArista(new Coordinate(-34.52, -58.70), new Coordinate(-70.52, -40.70)));
 		assertTrue( grafo.contieneArista(new Coordinate(-70.52, -40.70), new Coordinate(-45.52, -15.70)));
 		assertFalse( grafo.contieneArista(new Coordinate(-34.52, -58.70), new Coordinate(-24.52, -35.70)));
+		
 	}
 
 	@Test

@@ -7,7 +7,8 @@ import domain.Coordinate;
 
 public class AlgoritmosTest
 {
-	private GrafoCoordinates instancia() {
+	private Coordinates instanciaCoordenadas()
+	{
 		Coordinate c0= new Coordinate(-34.52, -58.70);
 		Coordinate c1= new Coordinate(-70.52, -40.70);
 		Coordinate c2= new Coordinate(-45.52, -15.70);
@@ -21,7 +22,21 @@ public class AlgoritmosTest
 		coordenadas.addCoordinate(c3);
 		coordenadas.addCoordinate(c4);
 		
-		GrafoCoordinates grafo = new GrafoCoordinates(new Coordinates());
+		return coordenadas;
+	}
+	
+	private GrafoCoordinates instanciaSinAristas() 
+	{
+		GrafoCoordinates grafo = new GrafoCoordinates(instanciaCoordenadas());
+	
+		return grafo;
+	}
+	
+	private GrafoCoordinates instanciaConAristas()
+	{
+		
+		GrafoCoordinates grafo = instanciaSinAristas();
+		Coordinates coordenadas = instanciaCoordenadas();
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(1));
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(2));
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(3));
@@ -34,17 +49,22 @@ public class AlgoritmosTest
 		return grafo;
 	}
 	
+	private GrafoCoordinates instancia() 
+	{
+		return instanciaConAristas();
+	}
+	
 	@Test
 	public void unAmarilloTest()
 	{
 		GrafoCoordinates grafo = instancia();
 
-		NeighborsCoordinate amarillos = new NeighborsCoordinate(null);
+		NeighborsCoordinate amarillos = new NeighborsCoordinate(grafo.vertices().get(0));
 		amarillos.add(grafo.vertices().get(0));
 		
 		Algoritmos.Arista arista= Algoritmos.menorArista(grafo, amarillos);
 		
-		assertEquals(new Algoritmos.Arista(new Coordinate(-34.52,-58.70), new Coordinate(-70.52,-40.70), 4150.56 ), arista);
+		assertEquals(new Algoritmos.Arista(new Coordinate(-34.52,-58.70), new Coordinate(-70.52,-40.70), 4146.364904306314 ), arista);
 	}
 	
 	@Test
