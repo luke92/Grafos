@@ -44,4 +44,10 @@ public class CoordinatesTest {
 		assertFalse( c.containsCoordinate( new Coordinate(20.5, 20)) );
 	}
 	
+	@Test
+	public void getPesoTest()
+	{
+		assertEquals( 4146.364904306314, Coordinates.getPeso(new Coordinate(-34.52, -58.70), new Coordinate(-70.52, -40.70)), 1e-4 );
+	}
+	
 }

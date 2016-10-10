@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import domain.Coordinate;
-
+import util.DistanceCalculator;
 import dataAccess.DataAccessJSON;
 
 public class Coordinates implements Iterable<Coordinate> {
@@ -93,16 +93,7 @@ public class Coordinates implements Iterable<Coordinate> {
 	
 	public static double getPeso(Coordinate coord1, Coordinate coord2)
 	{
-		double radioTierra = 6371; // en kil�metros
-		double dLat = Math.toRadians(coord2.getLat() - coord1.getLat());
-		double dLng = Math.toRadians(coord2.getLon() - coord1.getLon());
-		double sindLat = Math.sin(dLat / 2);
-		double sindLng = Math.sin(dLng / 2);
-		double va1 = Math.pow(sindLat, 2) + Math.pow(sindLng, 2)
-				* Math.cos(Math.toRadians(coord1.getLat())) * Math.cos(Math.toRadians(coord2.getLat()));
-		double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
-		
-		return radioTierra * va2;
+		return DistanceCalculator.distance(coord1.getLat(), coord1.getLon(), coord2.getLat(), coord2.getLon(), "K");
 	}
 
 }
