@@ -6,6 +6,7 @@ import domain.Coordinate;
 
 public class GrafoCoordinates 
 {
+	private Coordinates vertices;
 	private ArrayList<NeighborsCoordinate> vecinos;
 	private int aristas;
 	
@@ -13,15 +14,16 @@ public class GrafoCoordinates
 	{
 		if(coords.size() < 2) 
 			throw new IllegalArgumentException("No se puede crear un grafo con menos de 2 elementos");
+		vertices = coords;
 		vecinos = new ArrayList<NeighborsCoordinate>();
 		aristas = 0;
 		for(Coordinate coord: coords)
 			vecinos.add(new NeighborsCoordinate(coord));
 	}
 	
-	public int vertices() //cantidadVertices
+	public Coordinates vertices() //cantidadVertices
 	{
-		return vecinos.size();
+		return vertices;
 	}
 	
 	public int aristas()
@@ -104,7 +106,7 @@ public class GrafoCoordinates
 		return false;		
 	}
 	
-	public int posCoord(Coordinate coord)
+	private int posCoord(Coordinate coord)
 	{
 		for(int i = 0; i < vecinos.size(); i++) {
 			if(vecinos.get(i).getCoordinate().equals(coord))

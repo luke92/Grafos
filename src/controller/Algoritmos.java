@@ -6,7 +6,7 @@ public class Algoritmos
 {
 	public static GrafoCoordinates AGM(GrafoCoordinates grafo)
 	{
-		GrafoCoordinates resultado = new GrafoCoordinates( grafo.vertices() );
+		GrafoCoordinates resultado = new GrafoCoordinates( grafo.vertices());
 		NeighborsCoordinate amarillos = new NeighborsCoordinate( grafo.vertices().get(0) );
 		
 		for(int i = 0; i < grafo.vertices().size(); i++) {
