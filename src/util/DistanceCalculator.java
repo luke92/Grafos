@@ -26,6 +26,7 @@ package util;
 /*::                                                                         :*/
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+import controller.Algoritmos;
 import controller.Coordinates;
 import controller.GrafoCoordinates;
 import domain.Coordinate;
@@ -67,6 +68,14 @@ public class DistanceCalculator
 		for(Coordinate coord : coordenadas)
 		{
 			System.out.println(grafo.vecinos(coord));
+		}
+		
+		System.out.println("AGM");
+		
+		GrafoCoordinates agm = Algoritmos.AGM(grafo);
+		for(Coordinate coord : agm.vertices())
+		{
+			System.out.println(agm.vecinos(coord));
 		}
 	}
 

@@ -41,8 +41,8 @@ public class AlgoritmosTest
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(2));
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(3));
 		grafo.agregarArista(coordenadas.get(1), coordenadas.get(2));
-		grafo.agregarArista(coordenadas.get(2), coordenadas.get(3));
 		grafo.agregarArista(coordenadas.get(1), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(2), coordenadas.get(3));
 		grafo.agregarArista(coordenadas.get(2), coordenadas.get(4));
 		grafo.agregarArista(coordenadas.get(3), coordenadas.get(4));
 		
@@ -64,7 +64,7 @@ public class AlgoritmosTest
 		
 		Algoritmos.Arista arista= Algoritmos.menorArista(grafo, amarillos);
 		
-		assertEquals(new Algoritmos.Arista(new Coordinate(-34.52,-58.70), new Coordinate(-70.52,-40.70), 4146.364904306314 ), arista);
+		assertEquals(new Algoritmos.Arista(new Coordinate(-34.52,-58.70), new Coordinate(-45.52,-15.7),3808.8138641605287).toString(), arista.toString());
 	}
 	
 	@Test
@@ -78,7 +78,7 @@ public class AlgoritmosTest
 		amarillos.add(grafo.vertices().get(2));
 		
 		Algoritmos.Arista arista = Algoritmos.menorArista(grafo, amarillos);
-		assertEquals(new Algoritmos.Arista(new Coordinate(-70.52, -40.70), new Coordinate(-24.52, -35.70), 5130.12), arista);
+		assertEquals(new Algoritmos.Arista(new Coordinate(-45.52, -15.7), new Coordinate(-24.52, -35.7), 2943.6414424735053).toString(), arista.toString());
 	}
 
 	@Test
