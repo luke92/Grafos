@@ -56,10 +56,6 @@ public class DistanceCalculator
 		
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(1));
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(2));
-		grafo.agregarArista(coordenadas.get(0), coordenadas.get(3));
-		grafo.agregarArista(coordenadas.get(0), coordenadas.get(4));
-		grafo.agregarArista(coordenadas.get(1), coordenadas.get(2));
-		grafo.agregarArista(coordenadas.get(1), coordenadas.get(3));
 		grafo.agregarArista(coordenadas.get(1), coordenadas.get(4));
 		grafo.agregarArista(coordenadas.get(2), coordenadas.get(3));
 		grafo.agregarArista(coordenadas.get(2), coordenadas.get(4));
@@ -77,6 +73,8 @@ public class DistanceCalculator
 		{
 			System.out.println(agm.vecinos(coord));
 		}
+		System.out.println();
+		System.out.println("Cantidad de aristas :" + agm.aristas());
 	}
 
 	public static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {

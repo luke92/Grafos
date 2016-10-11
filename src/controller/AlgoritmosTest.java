@@ -39,8 +39,6 @@ public class AlgoritmosTest
 		Coordinates coordenadas = instanciaCoordenadas();
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(1));
 		grafo.agregarArista(coordenadas.get(0), coordenadas.get(2));
-		grafo.agregarArista(coordenadas.get(0), coordenadas.get(3));
-		grafo.agregarArista(coordenadas.get(1), coordenadas.get(2));
 		grafo.agregarArista(coordenadas.get(1), coordenadas.get(4));
 		grafo.agregarArista(coordenadas.get(2), coordenadas.get(3));
 		grafo.agregarArista(coordenadas.get(2), coordenadas.get(4));
@@ -88,9 +86,9 @@ public class AlgoritmosTest
 		GrafoCoordinates agm = Algoritmos.AGM(grafo);
 		
 		assertTrue(agm.contieneArista(new Coordinate(-34.52, -58.70), new Coordinate(-70.52, -40.70)));
-		assertTrue(agm.contieneArista(new Coordinate(-34.52, -58.70), new Coordinate(-96.52, -25.70)));
+		assertTrue(agm.contieneArista(new Coordinate(-34.52, -58.70), new Coordinate(-45.52, -15.7)));
 		assertTrue(agm.contieneArista(new Coordinate(-96.52, -25.70), new Coordinate(-45.52, -15.70)));
-		assertTrue(agm.contieneArista(new Coordinate(-24.52, -35.70), new Coordinate(-70.52, -40.70)));
+		assertTrue(agm.contieneArista(new Coordinate(-24.52, -35.70), new Coordinate(-45.52, -15.7)));
 		
 		assertEquals(4, agm.aristas());		
 	}
