@@ -16,6 +16,11 @@ public class NeighborsCoordinate implements Iterable<Coordinate> {
 		neighborsCoordinate = new HashSet<Coordinate>();
 	}
 	
+	public NeighborsCoordinate()
+	{
+		neighborsCoordinate = new HashSet<Coordinate>();
+	}
+	
 	public void add(Coordinate otherCoord)
 	{
 		neighborsCoordinate.add(otherCoord);
@@ -80,7 +85,19 @@ public class NeighborsCoordinate implements Iterable<Coordinate> {
 		} else if (!coord.equals(other.coord))
 			return false;
 		return true;
-	}	
+	}
+	
+	@Override
+	public String toString()
+	{
+		String s = "Coordenada: " + coord + "\n";
+		for(Coordinate coord : neighborsCoordinate)
+		{
+			s+= "Vecino: " + coord + " Distancia: " + Coordinates.getPeso(this.coord, coord) + "\n";
+		}
+		return s;
+		
+	}
 	
 	
 }

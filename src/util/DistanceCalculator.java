@@ -26,6 +26,10 @@ package util;
 /*::                                                                         :*/
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+import controller.Coordinates;
+import controller.GrafoCoordinates;
+import domain.Coordinate;
+
 public class DistanceCalculator
 {
 	public static void main (String[] args) throws java.lang.Exception
@@ -34,12 +38,36 @@ public class DistanceCalculator
 		System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, "K") + " Kilometers\n");
 		System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, "N") + " Nautical Miles\n");
 		
-		System.out.println(distance(-34.52, -58.70,-70.52, -40.70, "K"));
+		Coordinate c0= new Coordinate(-34.52, -58.70);
+		Coordinate c1= new Coordinate(-70.52, -40.70);
+		Coordinate c2= new Coordinate(-45.52, -15.70);
+		Coordinate c3= new Coordinate(-96.52, -25.70);
+		Coordinate c4= new Coordinate(-24.52, -35.70);
 		
-		System.out.println(distance(-96.52, -25.70, -70.52, -40.70, "K"));
-		System.out.println(distance(-96.52, -25.70,-45.52, -15.70, "K"));
-		System.out.println(distance(-70.52, -40.70,-45.52, -15.70, "K"));
+		Coordinates coordenadas = new Coordinates();
+		coordenadas.addCoordinate(c0);
+		coordenadas.addCoordinate(c1);
+		coordenadas.addCoordinate(c2);
+		coordenadas.addCoordinate(c3);
+		coordenadas.addCoordinate(c4);
 		
+		GrafoCoordinates grafo = new GrafoCoordinates(coordenadas);
+		
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(1));
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(2));
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(3));
+		grafo.agregarArista(coordenadas.get(0), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(1), coordenadas.get(2));
+		grafo.agregarArista(coordenadas.get(1), coordenadas.get(3));
+		grafo.agregarArista(coordenadas.get(1), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(2), coordenadas.get(3));
+		grafo.agregarArista(coordenadas.get(2), coordenadas.get(4));
+		grafo.agregarArista(coordenadas.get(3), coordenadas.get(4));
+		
+		for(Coordinate coord : coordenadas)
+		{
+			System.out.println(grafo.vecinos(coord));
+		}
 	}
 
 	public static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {

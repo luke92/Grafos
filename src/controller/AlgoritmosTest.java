@@ -59,7 +59,7 @@ public class AlgoritmosTest
 	{
 		GrafoCoordinates grafo = instancia();
 
-		NeighborsCoordinate amarillos = new NeighborsCoordinate(grafo.vertices().get(0));
+		NeighborsCoordinate amarillos = new NeighborsCoordinate();
 		amarillos.add(grafo.vertices().get(0));
 		
 		Algoritmos.Arista arista= Algoritmos.menorArista(grafo, amarillos);
@@ -72,7 +72,7 @@ public class AlgoritmosTest
 	{
 		GrafoCoordinates grafo = instancia();
 
-		NeighborsCoordinate amarillos = new NeighborsCoordinate(null);
+		NeighborsCoordinate amarillos = new NeighborsCoordinate();
 		amarillos.add(grafo.vertices().get(0));
 		amarillos.add(grafo.vertices().get(1));
 		amarillos.add(grafo.vertices().get(2));
