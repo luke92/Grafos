@@ -5,22 +5,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import domain.Coordinate;
-import grafo.Grafo;
 
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 
+import controller.Algoritmos;
 import controller.Coordinates;
+import controller.GrafoCoordinates;
+
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
 
 public class MainForm {
 	private JFrame frame;
@@ -53,12 +53,12 @@ public class MainForm {
 		frame.getContentPane().setLayout(null);
 
 		mapViewer = new JMapViewer();
-		mapViewer.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println(mapViewer.getPosition(e.getPoint()));
-			}
-		});
+//		mapViewer.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				System.out.println(mapViewer.getPosition(e.getPoint()));
+//			}
+//		});
 		// mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
 		mapViewer.setZoomContolsVisible(false);
 		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
@@ -106,10 +106,15 @@ public class MainForm {
 
 	private void dibujarPoligonos() 
 	{
+		GrafoCoordinates grafo = null;
 		for (Coordinates coords : listCoords) {
-			MapPolygon polygon = new MapPolygonImpl(coords.getCoords());
-			mapViewer.addMapPolygon(polygon);
+			grafo = new GrafoCoordinates(coords);
 		}
+		GrafoCoordinates agm = Algoritmos.AGM(grafo);
+
+//		MapPolygon polygon = new MapPolygonImpl(grafo.vertices().getCoords());
+		MapPolygon polygon = new MapPolygonImpl(agm.vertices().getCoords());
+		mapViewer.addMapPolygon(polygon);
 	}
 
 }

@@ -6,9 +6,9 @@ public class Algoritmos
 {
 	public static GrafoCoordinates AGM(GrafoCoordinates grafo)
 	{
-		GrafoCoordinates resultado = new GrafoCoordinates( grafo.vertices());
+		GrafoCoordinates resultado = new GrafoCoordinates( grafo.vertices() );
 		NeighborsCoordinate amarillos = new NeighborsCoordinate();
-		amarillos.add(grafo.vertices().get(0));
+		amarillos.add(grafo.vertices().get(0));	// ATENCION!
 		
 		for(int i = 0; i < grafo.vertices().size()-1; i++) {
 			Arista a = menorArista(grafo, amarillos); // De un amarillo a un negro
