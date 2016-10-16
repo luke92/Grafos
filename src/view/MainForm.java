@@ -9,7 +9,10 @@ import domain.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
+import org.openstreetmap.gui.jmapviewer.MapRectangleImpl;
+import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
+import org.openstreetmap.gui.jmapviewer.interfaces.MapRectangle;
 
 import controller.Algoritmos;
 import controller.Coordinates;
@@ -106,21 +109,27 @@ public class MainForm {
 
 	private void dibujarPoligonos() 
 	{
-		ArrayList<GrafoCoordinates> grafos = new ArrayList<GrafoCoordinates>();
 		for (Coordinates coords : listCoords) 
 		{
 			GrafoCoordinates grafo = new GrafoCoordinates(coords);
 			grafo.agregarTodasAristas();
 			GrafoCoordinates agm = Algoritmos.AGM(grafo);
-			grafos.add(agm);	
+			for(Coordinate c1 : agm.vertices())
+			{
+				System.out.println("paso1");
+				for(Coordinate c2 : agm.vecinos(c1))
+				{
+					System.out.println("Paso2");
+					ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
+					aristaMapa.add(c1);
+					aristaMapa.add(c2);
+					aristaMapa.add(c2);
+					mapViewer.addMapPolygon(new MapPolygonImpl(aristaMapa));
+				}
+			}	
 		}
 //		MapPolygon polygon = new MapPolygonImpl(grafo.vertices().getCoords());
-		for(GrafoCoordinates grafo : grafos)
-		{
-			System.out.println(grafo.aristas());
-			MapPolygon polygon = new MapPolygonImpl(grafo.vertices().getCoords());
-			mapViewer.addMapPolygon(polygon);
-		}
+		
 		
 	}
 
