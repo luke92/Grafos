@@ -110,7 +110,7 @@ public class GrafoCoordinates
 	{
 		for(int i = 0; i < vertices.size()-1; i++)
 		{
-			for(int j = i+1; j < vertices.size()-1; j++)
+			for(int j = i+1; j < vertices.size(); j++)
 			{
 				if(i != j)
 				agregarArista(vertices.get(i),vertices.get(j));

@@ -39,27 +39,17 @@ public class DistanceCalculator
 		System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, "K") + " Kilometers\n");
 		System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, "N") + " Nautical Miles\n");
 		
-		Coordinate c0= new Coordinate(-34.52, -58.70);
-		Coordinate c1= new Coordinate(-70.52, -40.70);
-		Coordinate c2= new Coordinate(-45.52, -15.70);
-		Coordinate c3= new Coordinate(-96.52, -25.70);
-		Coordinate c4= new Coordinate(-24.52, -35.70);
-		
 		Coordinates coordenadas = new Coordinates();
-		coordenadas.add(c0);
-		coordenadas.add(c1);
-		coordenadas.add(c2);
-		coordenadas.add(c3);
-		coordenadas.add(c4);
+		coordenadas.add(new Coordinate(-34.4821716,-58.666587));
+		coordenadas.add(new Coordinate(-34.4837988,-58.6637653));
+		coordenadas.add(new Coordinate(-34.4862131,-58.6642695));
+		coordenadas.add(new Coordinate(-34.4864696,-58.6682714));
 		
 		GrafoCoordinates grafo = new GrafoCoordinates(coordenadas);
 		
-		grafo.agregarArista(coordenadas.get(0), coordenadas.get(1));
-		grafo.agregarArista(coordenadas.get(0), coordenadas.get(2));
-		grafo.agregarArista(coordenadas.get(1), coordenadas.get(4));
-		grafo.agregarArista(coordenadas.get(2), coordenadas.get(3));
-		grafo.agregarArista(coordenadas.get(2), coordenadas.get(4));
-		grafo.agregarArista(coordenadas.get(3), coordenadas.get(4));
+		grafo.agregarTodasAristas();
+		
+		System.out.println("Cantidad de aristas sin AGM : " + grafo.aristas());
 		
 		for(Coordinate coord : coordenadas)
 		{
@@ -74,7 +64,7 @@ public class DistanceCalculator
 			System.out.println(agm.vecinos(coord));
 		}
 		System.out.println();
-		System.out.println("Cantidad de aristas :" + agm.aristas());
+		System.out.println("Cantidad de aristas con AGM:" + agm.aristas());
 	}
 
 	public static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {

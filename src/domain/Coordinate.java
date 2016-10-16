@@ -64,9 +64,9 @@ public class Coordinate implements ICoordinate
 		if (getClass() != obj.getClass())
 			return false;
 		Coordinate other = (Coordinate) obj;
-		if (Double.doubleToLongBits(latitud) != Double.doubleToLongBits(other.latitud))
+		if (Double.doubleToLongBits(this.getLat()) != Double.doubleToLongBits(other.getLat()))
 			return false;
-		if (Double.doubleToLongBits(longitud) != Double.doubleToLongBits(other.longitud))
+		if (Double.doubleToLongBits(this.getLon()) != Double.doubleToLongBits(other.getLon()))
 			return false;
 		
 		return true;

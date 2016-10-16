@@ -92,4 +92,5 @@ public class AlgoritmosTest
 		
 		assertEquals(4, agm.aristas());		
 	}
+	
 }

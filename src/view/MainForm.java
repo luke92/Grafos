@@ -106,19 +106,12 @@ public class MainForm {
 
 	private void dibujarPoligonos() 
 	{
-		Coordinates coords = listCoords.get(0);
-		GrafoCoordinates grafo = new GrafoCoordinates(coords);
-		grafo.agregarTodasAristas();
-		System.out.println(grafo.vertices().size());
-		System.out.println(grafo.aristas());
-		GrafoCoordinates agm = Algoritmos.AGM(grafo);
-		System.out.println(agm.aristas());
-		System.out.println(agm.vertices().size());
-		/*ArrayList<GrafoCoordinates> grafos = new ArrayList<GrafoCoordinates>();
+		ArrayList<GrafoCoordinates> grafos = new ArrayList<GrafoCoordinates>();
 		for (Coordinates coords : listCoords) 
 		{
-			GrafoCoordinates agm = Algoritmos.AGM(new GrafoCoordinates(coords));
-			agm.agregarTodasAristas();
+			GrafoCoordinates grafo = new GrafoCoordinates(coords);
+			grafo.agregarTodasAristas();
+			GrafoCoordinates agm = Algoritmos.AGM(grafo);
 			grafos.add(agm);	
 		}
 //		MapPolygon polygon = new MapPolygonImpl(grafo.vertices().getCoords());
@@ -127,7 +120,7 @@ public class MainForm {
 			System.out.println(grafo.aristas());
 			MapPolygon polygon = new MapPolygonImpl(grafo.vertices().getCoords());
 			mapViewer.addMapPolygon(polygon);
-		}*/
+		}
 		
 	}
 
