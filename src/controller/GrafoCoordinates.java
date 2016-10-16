@@ -67,7 +67,7 @@ public class GrafoCoordinates
 		if(!contieneCoordenada(coord1) || !contieneCoordenada(coord2))
 			throw new IllegalArgumentException("Vertices inexistentes en el grafo: " + coord1 + coord2);
 		if(coord1.equals(coord2))
-			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1);
+			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1 + " " + coord2);
 	}
 	
 	public int gradoDelVertice(Coordinate coord)

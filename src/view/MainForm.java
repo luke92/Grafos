@@ -116,10 +116,8 @@ public class MainForm {
 			GrafoCoordinates agm = Algoritmos.AGM(grafo);
 			for(Coordinate c1 : agm.vertices())
 			{
-				System.out.println("paso1");
 				for(Coordinate c2 : agm.vecinos(c1))
 				{
-					System.out.println("Paso2");
 					ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
 					aristaMapa.add(c1);
 					aristaMapa.add(c2);
