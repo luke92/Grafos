@@ -31,16 +31,16 @@ public class Coordinates implements Iterable<Coordinate> {
 		readFile(filename);
 	}
 
-	public void addCoordinate(Coordinate coord)
+	public void add(Coordinate coord)
 	{
 		_coordinates.add(coord);
 	}
 
-	public void removeCoordinate(Coordinate coord) {
+	public void remove(Coordinate coord) {
 		_coordinates.remove(coord);
 	}
 
-	public boolean containsCoordinate(Coordinate coord)
+	public boolean contains(Coordinate coord)
 	{
 		for (Coordinate c : _coordinates)
 			if (c.equals(coord))
@@ -94,6 +94,11 @@ public class Coordinates implements Iterable<Coordinate> {
 	public static double getPeso(Coordinate coord1, Coordinate coord2)
 	{
 		return DistanceCalculator.distance(coord1.getLat(), coord1.getLon(), coord2.getLat(), coord2.getLon(), "K");
+	}
+	
+	public int indexOf(Coordinate coord)
+	{
+		return _coordinates.indexOf(coord);
 	}
 
 }

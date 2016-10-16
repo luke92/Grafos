@@ -13,9 +13,9 @@ public class Console
 		System.out.println(c);
 		
 		Coordinates c2 = new Coordinates();
-		c2.addCoordinate(new Coordinate(20.5, 20));
-		c2.addCoordinate(new Coordinate(40,40));
-		c2.addCoordinate(new Coordinate(60,60));
+		c2.add(new Coordinate(20.5, 20));
+		c2.add(new Coordinate(40,40));
+		c2.add(new Coordinate(60,60));
 		c2.writeFile("prueba.json");
 		c2.readFile("prueba.json");
 		System.out.println(c2);

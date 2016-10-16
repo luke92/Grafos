@@ -21,7 +21,7 @@ public class GrafoCoordinates
 			vecinos.add(new NeighborsCoordinate(coord));
 	}
 	
-	public Coordinates vertices() //cantidadVertices
+	public Coordinates vertices()
 	{
 		return vertices;
 	}
@@ -98,21 +98,24 @@ public class GrafoCoordinates
 	
 	public boolean contieneCoordenada(Coordinate coord)
 	{
-		for(NeighborsCoordinate n : vecinos) 
-		{
-			if(n.getCoordinate().equals(coord))
-				return true;
-		}
-		return false;		
+		return vertices.contains(coord);	
 	}
 	
 	private int posCoord(Coordinate coord)
 	{
-		for(int i = 0; i < vecinos.size(); i++) {
-			if(vecinos.get(i).getCoordinate().equals(coord))
-				return i;
+		return vertices.indexOf(coord);
+	}
+	
+	public void agregarTodasAristas()
+	{
+		for(int i = 0; i < vertices.size()-1; i++)
+		{
+			for(int j = i+1; j < vertices.size()-1; j++)
+			{
+				if(i != j)
+				agregarArista(vertices.get(i),vertices.get(j));
+			}
 		}
-		return -1;
 	}
 	
 }

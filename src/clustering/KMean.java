@@ -1,4 +1,4 @@
-package cloustering;
+package clustering;
 import static java.lang.Math.abs;
 import java.util.ArrayList;
 import java.util.Collections;

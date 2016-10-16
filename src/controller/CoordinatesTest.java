@@ -10,10 +10,10 @@ public class CoordinatesTest {
 	private Coordinates instancia()
 	{
 		Coordinates c= new Coordinates();
-		c.addCoordinate(new Coordinate(20.5, 20));
-		c.addCoordinate(new Coordinate(40,40));
-		c.addCoordinate(new Coordinate(60,60));
-		c.addCoordinate(new Coordinate(-34.58, -58.34));
+		c.add(new Coordinate(20.5, 20));
+		c.add(new Coordinate(40,40));
+		c.add(new Coordinate(60,60));
+		c.add(new Coordinate(-34.58, -58.34));
 		
 		return c;
 	}
@@ -23,15 +23,15 @@ public class CoordinatesTest {
 	{
 		Coordinates c= instancia();
 
-		assertTrue( c.containsCoordinate( new Coordinate(20.5, 20) ));
-		assertTrue( c.containsCoordinate( new Coordinate(60,60) ));
-		assertTrue( c.containsCoordinate( new Coordinate(-34.58, -58.34) ));
+		assertTrue( c.contains( new Coordinate(20.5, 20) ));
+		assertTrue( c.contains( new Coordinate(60,60) ));
+		assertTrue( c.contains( new Coordinate(-34.58, -58.34) ));
 		
-		assertFalse( c.containsCoordinate( new Coordinate(20,60) ));
-		assertFalse( c.containsCoordinate( new Coordinate(-34.59, -58.35) ));
+		assertFalse( c.contains( new Coordinate(20,60) ));
+		assertFalse( c.contains( new Coordinate(-34.59, -58.35) ));
 		
-		c.addCoordinate(new Coordinate(20,60) );
-		assertTrue( c.containsCoordinate( new Coordinate(20,60) ));
+		c.add(new Coordinate(20,60) );
+		assertTrue( c.contains( new Coordinate(20,60) ));
 	}
 
 	@Test
@@ -39,9 +39,9 @@ public class CoordinatesTest {
 	{
 		Coordinates c= instancia();
 		
-		assertTrue( c.containsCoordinate( new Coordinate(20.5, 20)) );
-		c.removeCoordinate( new Coordinate(20.5, 20) );
-		assertFalse( c.containsCoordinate( new Coordinate(20.5, 20)) );
+		assertTrue( c.contains( new Coordinate(20.5, 20)) );
+		c.remove( new Coordinate(20.5, 20) );
+		assertFalse( c.contains( new Coordinate(20.5, 20)) );
 	}
 	
 	@Test

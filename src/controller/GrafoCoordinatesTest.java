@@ -17,11 +17,11 @@ public class GrafoCoordinatesTest {
 		Coordinate c4= new Coordinate(-24.52, -35.70);
 		
 		Coordinates coordenadas = new Coordinates();
-		coordenadas.addCoordinate(c0);
-		coordenadas.addCoordinate(c1);
-		coordenadas.addCoordinate(c2);
-		coordenadas.addCoordinate(c3);
-		coordenadas.addCoordinate(c4);
+		coordenadas.add(c0);
+		coordenadas.add(c1);
+		coordenadas.add(c2);
+		coordenadas.add(c3);
+		coordenadas.add(c4);
 		
 		return coordenadas;
 	}
