@@ -67,7 +67,7 @@ public class GrafoCoordinates
 		if(!contieneCoordenada(coord1) || !contieneCoordenada(coord2))
 			throw new IllegalArgumentException("Vertices inexistentes en el grafo: " + coord1 + coord2);
 		if(coord1.equals(coord2))
-			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1 + " " + coord2);
+			throw new IllegalArgumentException("No se pueden agregar loops: " + coord1);
 	}
 	
 	public int gradoDelVertice(Coordinate coord)
@@ -89,10 +89,10 @@ public class GrafoCoordinates
 	
 	public NeighborsCoordinate vecinos(Coordinate coord)
 	{
-		for(NeighborsCoordinate n : vecinos) {
+		for(NeighborsCoordinate n : vecinos)
 			if(n.equals(coord))
 				return n;
-		}
+		
 		return null;
 	}
 	
@@ -108,14 +108,10 @@ public class GrafoCoordinates
 	
 	public void agregarTodasAristas()
 	{
-		for(int i = 0; i < vertices.size()-1; i++)
-		{
-			for(int j = i+1; j < vertices.size(); j++)
-			{
-				if(i != j)
-				agregarArista(vertices.get(i),vertices.get(j));
-			}
-		}
+		for (int i = 0; i < vertices.size() - 1; i++)
+			for (int j = i + 1; j < vertices.size(); j++)
+				if (i != j)
+					agregarArista(vertices.get(i), vertices.get(j));
 	}
 	
 }

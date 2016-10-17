@@ -10,11 +10,6 @@ import domain.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
-import org.openstreetmap.gui.jmapviewer.MapRectangleImpl;
-import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
-import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
-import org.openstreetmap.gui.jmapviewer.interfaces.MapRectangle;
-
 import controller.Algoritmos;
 import controller.Cluster;
 import controller.Coordinates;
@@ -25,7 +20,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 
@@ -113,38 +107,33 @@ public class MainForm {
 
 	private void dibujarPoligonos() 
 	{
-		for (Coordinates coords : listCoords) 
-		{
+		for (Coordinates coords : listCoords) {
 			GrafoCoordinates grafo = new GrafoCoordinates(coords);
 			grafo.agregarTodasAristas();
 			GrafoCoordinates agm = Algoritmos.AGM(grafo);
 			Integer cantClusters = escribirCantidadClusters(agm.aristas());
-			Cluster.generar(agm,cantClusters);
-			for(Coordinate c1 : agm.vertices())
-			{
-				for(Coordinate c2 : agm.vecinos(c1))
-				{
+			Cluster.generar(agm, cantClusters);
+			for (Coordinate c1 : agm.vertices())
+				for (Coordinate c2 : agm.vecinos(c1)) {
 					ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
 					aristaMapa.add(c1);
 					aristaMapa.add(c2);
 					aristaMapa.add(c2);
 					mapViewer.addMapPolygon(new MapPolygonImpl(aristaMapa));
 				}
-			}	
 		}
 		
 	}
 	
 	private Integer escribirCantidadClusters(int aristas)
 	{
-		String nombre= JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas +  ")");
+		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ")");
 		Integer cantidad = 0;
-		if(!Pattern.matches("[1-9]\\d*", nombre))
-		{
+		if (!Pattern.matches("[1-9]\\d*", nombre))
 			escribirCantidadClusters(aristas);
-		}
+		
 		cantidad = Integer.parseInt(nombre);
-		if(cantidad > aristas)
+		if (cantidad > aristas)
 			cantidad = escribirCantidadClusters(aristas);
 		return cantidad;
 	}

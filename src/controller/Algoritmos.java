@@ -25,14 +25,11 @@ public class Algoritmos
 		Arista ret = new Arista(null, null, Double.MAX_VALUE);
 	
 		for (Coordinate i : amarillos)
-		{
 			for (Coordinate j : grafo.vecinos(i))
-			{
 				if ( !amarillos.contains(j))
 					if(grafo.getPeso(i, j)<ret.peso )
 						ret = new Arista(i, j, grafo.getPeso(i, j));
-			}
-		}
+		
 		return ret;
 	}
 	
