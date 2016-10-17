@@ -142,6 +142,7 @@ public class MainForm {
 	
 	private Integer escribirCantidadClusters(int aristas)
 	{
+		// hay un error que siempre muestra el nombre de la segunda instancia que uno carga
 		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ") para " + OpenFilesForm.getNombre());
 		Integer cantidad = 0;
 		if (!Pattern.matches("[1-9]\\d*", nombre))
