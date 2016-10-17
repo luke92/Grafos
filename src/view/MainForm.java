@@ -122,11 +122,13 @@ public class MainForm {
 
 	private void dibujarPoligonos() 
 	{
+		int index= -1;
 		for (Coordinates coords : listCoords) {
+			index++;
 			GrafoCoordinates grafo = new GrafoCoordinates(coords);
 			grafo.agregarTodasAristas();
 			GrafoCoordinates agm = Algoritmos.AGM(grafo);
-			Integer cantClusters = escribirCantidadClusters(agm.aristas());
+			Integer cantClusters = escribirCantidadClusters(agm.aristas(), index);
 			Cluster.generar(agm, cantClusters);
 			for (Coordinate c1 : agm.vertices())
 				for (Coordinate c2 : agm.vecinos(c1)) {
@@ -140,17 +142,16 @@ public class MainForm {
 		
 	}
 	
-	private Integer escribirCantidadClusters(int aristas)
+	private Integer escribirCantidadClusters(int aristas, int index)
 	{
-		// hay un error que siempre muestra el nombre de la segunda instancia que uno carga
-		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ") para " + OpenFilesForm.getNombre());
+		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ") para " + OpenFilesForm.getNombre(index));
 		Integer cantidad = 0;
 		if (!Pattern.matches("[1-9]\\d*", nombre))
-			escribirCantidadClusters(aristas);
+			escribirCantidadClusters(aristas, index);
 		
 		cantidad = Integer.parseInt(nombre);
 		if (cantidad > aristas)
-			cantidad = escribirCantidadClusters(aristas);
+			cantidad = escribirCantidadClusters(aristas, index);
 		return cantidad;
 	}
 

@@ -62,7 +62,8 @@ public class OpenFilesForm {
 		return null;
 	}
 	
-	public static String getNombre() {
+	public static String getNombre(Integer index) {
+		nombre= archivos.get(index);
 		int i= nombre.length()-1;
 		String nombreDelArchivo= "";
 		while(i>=0){
