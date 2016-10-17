@@ -3,6 +3,7 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import domain.Coordinate;
 
@@ -24,6 +25,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 
 public class MainForm {
@@ -115,7 +118,8 @@ public class MainForm {
 			GrafoCoordinates grafo = new GrafoCoordinates(coords);
 			grafo.agregarTodasAristas();
 			GrafoCoordinates agm = Algoritmos.AGM(grafo);
-			Cluster.generar(agm);
+			Integer cantClusters = escribirCantidadClusters(agm.aristas());
+			Cluster.generar(agm,cantClusters);
 			for(Coordinate c1 : agm.vertices())
 			{
 				for(Coordinate c2 : agm.vecinos(c1))
@@ -128,9 +132,21 @@ public class MainForm {
 				}
 			}	
 		}
-//		MapPolygon polygon = new MapPolygonImpl(grafo.vertices().getCoords());
 		
-		
+	}
+	
+	private Integer escribirCantidadClusters(int aristas)
+	{
+		String nombre= JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas +  ")");
+		Integer cantidad = 0;
+		if(!Pattern.matches("[1-9]\\d*", nombre))
+		{
+			escribirCantidadClusters(aristas);
+		}
+		cantidad = Integer.parseInt(nombre);
+		if(cantidad > aristas)
+			cantidad = escribirCantidadClusters(aristas);
+		return cantidad;
 	}
 
 }

@@ -4,11 +4,13 @@ import domain.Coordinate;
 
 public class Cluster 
 {
-	public static void generar(GrafoCoordinates agm)
+	public static void generar(GrafoCoordinates agm, Integer cantidadClusters)
 	{
-		
-		Arista a = mayorArista(agm);
-		agm.removerArista(a.amarillo, a.negro);
+		for(int i = 1; i < cantidadClusters; i++)
+		{
+			Arista a = mayorArista(agm);
+			agm.removerArista(a.amarillo, a.negro);
+		}
 	}
 	
 	private static Arista mayorArista(GrafoCoordinates grafo)
