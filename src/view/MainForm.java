@@ -86,38 +86,57 @@ public class MainForm {
 
 		btnBorrarMarcadores.setBounds(817, 45, 157, 23);
 		mapViewer.add(btnBorrarMarcadores);
-		
-		JButton btnCantClusters= new JButton("Cant de Clusters");
-		btnBorrarMarcadores.addActionListener(new ActionListener() {
+
+		JButton btnCantClustering = new JButton("cant de Clusters");	//siempre es con el ultimo ingresado
+		btnCantClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*preguntar que instancia volver a cargar
-				 * borrar esa instancia
-				 * cargarla
-				 * */
+				List<Coordinates> listaCoords= listCoords;
+				borrarObjetosMapa();	//borrar linea despues de implementar borrarObjeto()
+				borrarObjeto(listaCoords);
+				cargarCoordenada(listaCoords);
+				dibujarPoligono(listaCoords);
+				listCoords= listaCoords;
 			}
 		});
 
-		btnCantClusters.setBounds(817, 79, 157, 23);
-		mapViewer.add(btnCantClusters);
+		btnCantClustering.setBounds(817, 79, 157, 23);
+		mapViewer.add(btnCantClustering);
 	}
 	
 	private void cargarCoordenadas() 
 	{
-		//fijarme si ya esta cargado
 		listCoords = OpenFilesForm.getListCoordinates(mapViewer);
 		for (Coordinates coords : listCoords)
 			for (Coordinate c : coords)
 				mapViewer.addMapMarker(new MapMarkerDot(c.getLat(), c.getLon()));
-		
+
 		dibujarPoligonos();
 	}
+	
+	private void cargarCoordenada(List<Coordinates> listCoords) 
+	{
+		for (Coordinates coords : listCoords)
+			for (Coordinate c : coords)
+				mapViewer.addMapMarker(new MapMarkerDot(c.getLat(), c.getLon()));
 
+		dibujarPoligonos();
+	}
+	
 	private void borrarObjetosMapa() 
 	{
 		mapViewer.removeAllMapMarkers();
 		mapViewer.removeAllMapPolygons();
 		mapViewer.removeAllMapRectangles();
 		listCoords = new ArrayList<Coordinates>();
+	}
+	
+	private void borrarObjeto(List<Coordinates> listCoords) 
+	{
+//		IMPLEMENTAR
+//		mapViewer.removeMapMarker(null);
+//		mapViewer.removeMapPolygon(null);
+//		mapViewer.removeMapRectangle(null);
+//		listCoords = new ArrayList<Coordinates>();
 	}
 
 	private void dibujarPoligonos() 
@@ -139,19 +158,41 @@ public class MainForm {
 					mapViewer.addMapPolygon(new MapPolygonImpl(aristaMapa));
 				}
 		}
-		
+	}
+	
+	private void dibujarPoligono(List<Coordinates> listCoords) 
+	{
+		int index= -1;
+		for (Coordinates coords : listCoords) {
+			index++;
+			GrafoCoordinates grafo = new GrafoCoordinates(coords);
+			grafo.agregarTodasAristas();
+			GrafoCoordinates agm = Algoritmos.AGM(grafo);
+			Integer cantClusters = escribirCantidadClusters(agm.aristas(), index);
+			Cluster.generar(agm, cantClusters);
+			for (Coordinate c1 : agm.vertices())
+				for (Coordinate c2 : agm.vecinos(c1)) {
+					ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
+					aristaMapa.add(c1);
+					aristaMapa.add(c2);
+					aristaMapa.add(c2);
+					mapViewer.addMapPolygon(new MapPolygonImpl(aristaMapa));
+				}
+		}
 	}
 	
 	private Integer escribirCantidadClusters(int aristas, int index)
 	{
 		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ") para " + OpenFilesForm.getNombre(index));
 		Integer cantidad = 0;
+
 		if (!Pattern.matches("[1-9]\\d*", nombre))
 			escribirCantidadClusters(aristas, index);
-		
+
 		cantidad = Integer.parseInt(nombre);
 		if (cantidad > aristas)
 			cantidad = escribirCantidadClusters(aristas, index);
+
 		return cantidad;
 	}
 
