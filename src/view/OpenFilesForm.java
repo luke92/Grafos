@@ -12,12 +12,14 @@ import controller.Coordinates;
 
 public class OpenFilesForm {
 	static List<String> archivos;
+	static String nombre;
 
 	public static List<Coordinates> getListCoordinates(Component contentPane) 
 	{
 		List<String> rutas = OpenFilesForm.getPathSelectFiles(contentPane);
 		List<Coordinates> listCoordinates = new ArrayList<Coordinates>();
 		for (String x : rutas) {
+			nombre= x;
 			Coordinates coords = new Coordinates();
 			coords.readFile(x);
 			listCoordinates.add(coords);
@@ -58,6 +60,18 @@ public class OpenFilesForm {
 			return archivos;
 		}
 		return null;
+	}
+	
+	public static String getNombre() {
+		int i= nombre.length()-1;
+		String nombreDelArchivo= "";
+		while(i>=0){
+			if(nombre.charAt(i)=='\\')
+				break;
+			nombreDelArchivo= nombre.charAt(i) + nombreDelArchivo;
+			i--;
+		}
+		return nombreDelArchivo;
 	}
 
 }

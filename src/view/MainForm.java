@@ -10,6 +10,8 @@ import domain.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
+import org.openstreetmap.gui.jmapviewer.interfaces.MapMarker;
+
 import controller.Algoritmos;
 import controller.Cluster;
 import controller.Coordinates;
@@ -85,10 +87,24 @@ public class MainForm {
 
 		btnBorrarMarcadores.setBounds(817, 45, 157, 23);
 		mapViewer.add(btnBorrarMarcadores);
+		
+		JButton btnCantClusters= new JButton("Cant de Clusters");
+		btnBorrarMarcadores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/*preguntar que instancia volver a cargar
+				 * borrar esa instancia
+				 * cargarla
+				 * */
+			}
+		});
+
+		btnCantClusters.setBounds(817, 79, 157, 23);
+		mapViewer.add(btnCantClusters);
 	}
 	
 	private void cargarCoordenadas() 
 	{
+		//fijarme si ya esta cargado
 		listCoords = OpenFilesForm.getListCoordinates(mapViewer);
 		for (Coordinates coords : listCoords)
 			for (Coordinate c : coords)
@@ -127,7 +143,7 @@ public class MainForm {
 	
 	private Integer escribirCantidadClusters(int aristas)
 	{
-		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ")");
+		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ") para " + OpenFilesForm.getNombre());
 		Integer cantidad = 0;
 		if (!Pattern.matches("[1-9]\\d*", nombre))
 			escribirCantidadClusters(aristas);
