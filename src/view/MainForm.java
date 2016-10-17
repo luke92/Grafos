@@ -15,6 +15,7 @@ import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapRectangle;
 
 import controller.Algoritmos;
+import controller.Cluster;
 import controller.Coordinates;
 import controller.GrafoCoordinates;
 
@@ -114,6 +115,7 @@ public class MainForm {
 			GrafoCoordinates grafo = new GrafoCoordinates(coords);
 			grafo.agregarTodasAristas();
 			GrafoCoordinates agm = Algoritmos.AGM(grafo);
+			Cluster.generar(agm);
 			for(Coordinate c1 : agm.vertices())
 			{
 				for(Coordinate c2 : agm.vecinos(c1))
