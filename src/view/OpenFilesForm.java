@@ -29,14 +29,12 @@ public class OpenFilesForm {
 	
 	public static List<Coordinates> getListCoordinates(String x) 
 	{
-//		List<String> rutas = OpenFilesForm.getPathSelectFiles(contentPane);
 		List<Coordinates> listCoordinates = new ArrayList<Coordinates>();
-//		for (String x : rutas) {
-			nombre= x;
-			Coordinates coords = new Coordinates();
-			coords.readFile(x);
-			listCoordinates.add(coords);
-//		}
+		nombre = x;
+		Coordinates coords = new Coordinates();
+		coords.readFile(x);
+		listCoordinates.add(coords);
+
 		return listCoordinates;
 	}
 

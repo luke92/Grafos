@@ -55,13 +55,6 @@ public class MainForm {
 		frame.getContentPane().setLayout(null);
 
 		mapViewer = new JMapViewer();
-//		mapViewer.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				System.out.println(mapViewer.getPosition(e.getPoint()));
-//			}
-//		});
-		// mapViewer.setTileSource(new OfflineOsmTileSource("file:///OSM/tiles", 1, 18));
 		mapViewer.setZoomContolsVisible(false);
 		mapViewer.setDisplayPositionByLatLon(-34.521, -58.7008, 11);
 
@@ -87,12 +80,11 @@ public class MainForm {
 		btnBorrarMarcadores.setBounds(817, 45, 157, 23);
 		mapViewer.add(btnBorrarMarcadores);
 
-		JButton btnCantClustering = new JButton("cant de Clusters");	//siempre es con el ultimo ingresado
+		JButton btnCantClustering = new JButton("Cant de Clusters");
 		btnCantClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				List<Coordinates> listaCoords= listCoords;
-				borrarObjetosMapa();	//borrar linea despues de implementar borrarObjeto()
-				borrarObjeto(listaCoords);
+				borrarObjetosMapa();
 				cargarCoordenada(listaCoords);
 				dibujarPoligono(listaCoords);
 				listCoords= listaCoords;
@@ -128,15 +120,6 @@ public class MainForm {
 		mapViewer.removeAllMapPolygons();
 		mapViewer.removeAllMapRectangles();
 		listCoords = new ArrayList<Coordinates>();
-	}
-	
-	private void borrarObjeto(List<Coordinates> listCoords) 
-	{
-//		IMPLEMENTAR
-//		mapViewer.removeMapMarker(null);
-//		mapViewer.removeMapPolygon(null);
-//		mapViewer.removeMapRectangle(null);
-//		listCoords = new ArrayList<Coordinates>();
 	}
 
 	private void dibujarPoligonos() 
