@@ -1,10 +1,14 @@
 
 package controller;
 
+import java.util.ArrayList;
+
 import domain.Coordinate;
 
 public class Algoritmos 
 {
+	static ArrayList<GrafoCoordinates> listaAGM = new ArrayList<GrafoCoordinates>();
+	
 	public static GrafoCoordinates AGM(GrafoCoordinates grafo)
 	{
 		GrafoCoordinates resultado = new GrafoCoordinates(grafo.vertices());
@@ -16,6 +20,8 @@ public class Algoritmos
 			resultado.agregarArista(a.amarillo, a.negro);
 			amarillos.add(a.negro);
 		}
+		
+		listaAGM.add(resultado);
 		
 		return resultado;
 	}
