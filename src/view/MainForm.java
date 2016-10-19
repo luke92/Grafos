@@ -152,7 +152,7 @@ public class MainForm {
 			grafo.agregarTodasAristas();
 			GrafoCoordinates agm = Algoritmos.AGM(grafo);
 			Integer cantClusters = escribirCantidadClusters(agm.aristas(), index);
-			Cluster.generar(agm, cantClusters);
+			if(cantClusters > 0) Cluster.generar(agm, cantClusters);
 			for (Coordinate c1 : agm.vertices())
 				for (Coordinate c2 : agm.vecinos(c1)) {
 					ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
@@ -166,7 +166,7 @@ public class MainForm {
 	
 	private Integer escribirCantidadClusters(int aristas, int index)
 	{
-		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ") para " + OpenFilesForm.getNombre(index));
+		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas+1 + ") para " + OpenFilesForm.getNombre(index));
 		Integer cantidad = 0;
 
 		if (!Pattern.matches("[1-9]\\d*", nombre))
@@ -176,7 +176,7 @@ public class MainForm {
 		if (cantidad > aristas)
 			cantidad = escribirCantidadClusters(aristas, index);
 
-		return cantidad;
+		return cantidad - 1;
 	}
 
 }
