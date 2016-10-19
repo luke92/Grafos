@@ -166,17 +166,17 @@ public class MainForm {
 	
 	private Integer escribirCantidadClusters(int aristas, int index)
 	{
-		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas+1 + ") para " + OpenFilesForm.getNombre(index));
+		String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + (aristas+1) + ") para " + OpenFilesForm.getNombre(index));
 		Integer cantidad = 0;
 
 		if (!Pattern.matches("[1-9]\\d*", nombre))
 			escribirCantidadClusters(aristas, index);
 
 		cantidad = Integer.parseInt(nombre);
-		if (cantidad > aristas)
+		if (cantidad > aristas+1)
 			cantidad = escribirCantidadClusters(aristas, index);
 
-		return cantidad - 1;
+		return cantidad;
 	}
 
 }
