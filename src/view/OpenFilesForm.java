@@ -2,6 +2,8 @@ package view;
 
 import java.awt.Component;
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,37 +11,26 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import controller.Coordinates;
+import controller.FicheroCoordenadas;
 
 public class OpenFilesForm {
-	static List<String> archivos;
-	static String nombre;
 
-	public static List<Coordinates> getListCoordinates(Component contentPane) 
+	public static ArrayList<FicheroCoordenadas> getListCoordinates(Component contentPane) 
 	{
 		List<String> rutas = OpenFilesForm.getPathSelectFiles(contentPane);
-		List<Coordinates> listCoordinates = new ArrayList<Coordinates>();
-		for (String x : rutas) {
-			nombre= x;
+		ArrayList<FicheroCoordenadas> ficheros = new ArrayList<FicheroCoordenadas>();
+		for (String x : rutas) 
+		{
 			Coordinates coords = new Coordinates();
 			coords.readFile(x);
-			listCoordinates.add(coords);
+			ficheros.add(new FicheroCoordenadas(getFileName(x), coords));
 		}
-		return listCoordinates;
-	}
-	
-	public static List<Coordinates> getListCoordinates(String x) 
-	{
-		List<Coordinates> listCoordinates = new ArrayList<Coordinates>();
-		nombre = x;
-		Coordinates coords = new Coordinates();
-		coords.readFile(x);
-		listCoordinates.add(coords);
-
-		return listCoordinates;
+		return ficheros;
 	}
 
 	private static List<String> getPathSelectFiles(Component contentPane) 
 	{
+		List<String> archivos;
 		// returns the current working directory as a String
 		String rutaProjecto = System.getProperty("user.dir");
 
@@ -73,17 +64,10 @@ public class OpenFilesForm {
 		return null;
 	}
 	
-	public static String getNombre(Integer index) {
-		nombre= archivos.get(index);
-		int i= nombre.length()-1;
-		String nombreDelArchivo= "";
-		while(i>=0){
-			if(nombre.charAt(i)=='\\')
-				break;
-			nombreDelArchivo= nombre.charAt(i) + nombreDelArchivo;
-			i--;
-		}
-		return nombreDelArchivo;
+	private static String getFileName(String fullPath)
+	{
+		Path p = Paths.get(fullPath);
+		return p.getFileName().toString();
 	}
 
 }
