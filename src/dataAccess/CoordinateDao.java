@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-public class DataAccessJSON 
+public class CoordinateDao 
 {
 	private static boolean exists(String filename)
 	{

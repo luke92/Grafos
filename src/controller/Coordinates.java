@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import domain.Coordinate;
 import util.DistanceCalculator;
-import dataAccess.DataAccessJSON;
+import dataAccess.CoordinateDao;
 
 public class Coordinates implements Iterable<Coordinate> {
 	private ArrayList<Coordinate> _coordinates;
@@ -51,7 +51,7 @@ public class Coordinates implements Iterable<Coordinate> {
 
 	public boolean readFile(String filename)
 	{
-		_coordinates = DataAccessJSON.readJSON(filename);
+		_coordinates = CoordinateDao.readJSON(filename);
 		if (_coordinates == null)
 			return false;
 		return true;
@@ -59,7 +59,7 @@ public class Coordinates implements Iterable<Coordinate> {
 
 	public boolean writeFile(String filename)
 	{
-		return DataAccessJSON.writeJSON(filename, _coordinates);
+		return CoordinateDao.writeJSON(filename, _coordinates);
 	}
 
 	@Override

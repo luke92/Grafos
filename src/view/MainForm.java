@@ -88,11 +88,11 @@ public class MainForm {
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				mapController.generarAllClusters();
-				List<Coordinates> listaCoords= listCoords;
+				/*List<Coordinates> listaCoords= listCoords;
 				borrarInstancias();
 				cargarCoordenada(listaCoords);
 				dibujarPoligono(listaCoords);
-				listCoords= listaCoords;
+				listCoords= listaCoords;*/
 			}
 		});
 
