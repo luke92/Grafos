@@ -7,14 +7,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Coordinate;
-import util.FileChecker;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-public class CoordinateDao 
+import domain.AristaPojo;
+import util.FileChecker;
+
+public class AristaDao 
 {
 	private static boolean exists(String filename)
 	{
@@ -22,25 +22,25 @@ public class CoordinateDao
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static ArrayList<Coordinate> readJSON(String filename)
+	public static ArrayList<AristaPojo> readJSON(String filename)
 	{
-		ArrayList<Coordinate> lcs = null;
+		ArrayList<AristaPojo> lcs = null;
 		if(!exists(filename)) return lcs;
 		try
 		{
 			BufferedReader br = new BufferedReader(new FileReader(filename));
-			Type collectionType = new TypeToken<List<Coordinate>>(){}.getType();
-			lcs = (ArrayList<Coordinate>) new Gson().fromJson( br , collectionType);
+			Type collectionType = new TypeToken<List<AristaPojo>>(){}.getType();
+			lcs = (ArrayList<AristaPojo>) new Gson().fromJson( br , collectionType);
 		}
 		catch (Exception e) { e.printStackTrace(); }
 		
 		return lcs;
 	}
 	
-	public static boolean writeJSON(String filename, ArrayList<Coordinate> coordinates)
+	public static boolean writeJSON(String filename, ArrayList<AristaPojo> lista)
 	{
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(coordinates);
+		String json = gson.toJson(lista);
 		try
 		{
 			FileWriter writer = new FileWriter(filename);
