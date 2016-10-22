@@ -114,4 +114,12 @@ public class GrafoCoordinates
 					agregarArista(vertices.get(i), vertices.get(j));
 	}
 	
+	@Override
+	public GrafoCoordinates clone()
+	{
+		GrafoCoordinates clon = new GrafoCoordinates(vertices);
+				
+		return clon;
+	}
+	
 }
