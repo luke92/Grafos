@@ -53,11 +53,11 @@ public class MapController
 		
 		for (Coordinate c1 : agm.vertices()){
 			for (Coordinate c2 : agm.vecinos(c1)) {
-				ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
-				aristaMapa.add(c1);
-				aristaMapa.add(c2);
-				aristaMapa.add(c2);
-				mapViewer.addMapPolygon(new MapPolygonImpl(aristaMapa));
+				ArrayList<Coordinate> aristaPojo = new ArrayList<Coordinate>();
+				aristaPojo.add(c1);
+				aristaPojo.add(c2);
+				aristaPojo.add(c2);
+				mapViewer.addMapPolygon(new MapPolygonImpl(aristaPojo));
 			}
 		}
 	}
@@ -73,7 +73,6 @@ public class MapController
 	
 	public void generarAllClusters()
 	{
-		
 		ArrayList<GrafoCoordinates> agmsCluster = (ArrayList<GrafoCoordinates>) grafos.clone();
 		
 	}
