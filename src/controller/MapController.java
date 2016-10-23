@@ -106,14 +106,14 @@ public class MapController
 	
 	private Integer escribirCantidadClusters(String instancia, int aristas)
 	{
-		String cantidad = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ") para " + instancia);
+		String cantidad = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + (aristas+1) + ") para " + instancia);
 		Integer clusters = 0;
 
 		if (!Pattern.matches("[1-9]\\d*", cantidad))
 			escribirCantidadClusters(instancia, aristas);
 
 		clusters = Integer.parseInt(cantidad);
-		if (clusters > aristas)
+		if (clusters > aristas+1)
 			clusters = escribirCantidadClusters(instancia, aristas);
 
 		return clusters;
