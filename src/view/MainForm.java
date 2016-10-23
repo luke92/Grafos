@@ -3,26 +3,16 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-import domain.Coordinate;
 
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
-import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
-import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
 
-import controller.Algoritmos;
-import controller.Cluster;
 import controller.Coordinates;
-import controller.GrafoCoordinates;
 import controller.MapController;
 
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 
 public class MainForm {
@@ -69,7 +59,7 @@ public class MainForm {
 			}
 		});
 
-		btnCargarInstancias.setBounds(817, 11, 157, 23);
+		btnCargarInstancias.setBounds(790, 11, 190, 23);
 		mapViewer.add(btnCargarInstancias);
 
 		JButton btnBorrarInstancias = new JButton("Borrar Instancias");
@@ -79,7 +69,7 @@ public class MainForm {
 			}
 		});
 
-		btnBorrarInstancias.setBounds(817, 45, 157, 23);
+		btnBorrarInstancias.setBounds(790, 45, 190, 23);
 		mapViewer.add(btnBorrarInstancias);
 
 		JButton btnAllClusters = new JButton("Generar todos los Clusters");
