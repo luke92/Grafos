@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.11" icons="true" automaticImage="PNG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
+  router="FAN">  
+  <class id="1" language="java" name="controller.GrafoCoordinatesTest" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/GrafoCoordinatesTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="202" width="265" x="957" y="660"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="controller.NeighborsCoordinate" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/NeighborsCoordinate.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="246" x="204" y="1190"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="controller.Coordinates" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/Coordinates.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="364" width="297" x="702" y="1064"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="controller.MapController" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/MapController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="304" x="433" y="516"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="controller.CoordinatesTest" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/CoordinatesTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="263" x="958" y="30"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="controller.FicheroCoordenadas" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/FicheroCoordenadas.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="236" x="513" y="817"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="controller.Cluster" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/Cluster.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="262" x="960" y="520"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="controller.GrafoCoordinates" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/GrafoCoordinates.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="372" x="101" y="817"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="controller.Arista" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/Arista.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="205" x="467" y="1240"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="controller.AlgoritmosTest" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/AlgoritmosTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="612" y="335"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="controller.Algoritmos" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/Algoritmos.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="143" width="315" x="91" y="572"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="controller.NeighborsCoordinateTest" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/controller/NeighborsCoordinateTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="152" width="181" x="359" y="37"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="dataAccess.CoordinateDao" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/dataAccess/CoordinateDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1092" y="431"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="dataAccess.AristaDao" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/dataAccess/AristaDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1091" y="283"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="util.OfflineOsmTileSource" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/util/OfflineOsmTileSource.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="195" x="733" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="util.FileChecker" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/util/FileChecker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="132" x="201" y="373"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="util.TileDownloader" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/util/TileDownloader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="113" x="350" y="373"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="util.DistanceCalculator" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/util/DistanceCalculator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="278" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="util.Proxy" project="tp2_mapViewer" file="/tp2_mapViewer/src/util/Proxy.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="105" x="64" y="373"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="view.OpenFilesForm" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/view/OpenFilesForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="147" width="395" x="67" y="208"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="view.MainForm" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/view/MainForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="202" width="178" x="758" y="269"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="view.Console" project="tp2_mapViewer" file="/tp2_mapViewer/src/view/Console.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="113" x="580" y="37"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="domain.Coordinate" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/domain/Coordinate.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="628" x="-9" y="1563"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="domain.AristaPojo" project="tp2_mapViewer" 
+    file="/tp2_mapViewer/src/domain/AristaPojo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="209" width="212" x="-28" y="1223"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="25">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="26" name="mapController"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="29" name="vecinos"/>      
+      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <bendpoint x="844" y="565"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="32" name="listCoords"/>      
+      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <bendpoint x="711" y="1652"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="35" name="_coordinates"/>      
+      <multiplicity id="36" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <bendpoint x="32" y="1423"/>    
+    <bendpoint x="19" y="1522"/>    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="38" name="coord1"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="41" name="grafos"/>      
+      <multiplicity id="42" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <bendpoint x="617" y="1539"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="44" name="negro"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="47" name="ficherosCoords"/>      
+      <multiplicity id="48" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="50" name="listaAGM"/>      
+      <multiplicity id="51" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <bendpoint x="93" y="1491"/>    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="53" name="coord2"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <bendpoint x="254" y="1518"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="56" name="coord"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="59" name="vertices"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <bendpoint x="417" y="1535"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="62" name="neighborsCoordinate"/>      
+      <multiplicity id="63" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="65" name="_coords"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <bendpoint x="535" y="1528"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="68" name="amarillo"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

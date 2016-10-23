@@ -12,9 +12,6 @@ public class GrafoCoordinates
 	
 	public GrafoCoordinates(Coordinates coords)
 	{
-		//if(coords.size() < 2) 
-			//throw new IllegalArgumentException("No se puede crear un grafo con menos de 2 elementos");
-		vertices = coords;
 		vecinos = new ArrayList<NeighborsCoordinate>();
 		aristas = 0;
 		for(Coordinate coord: coords)
