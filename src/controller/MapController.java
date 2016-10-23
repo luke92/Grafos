@@ -27,10 +27,8 @@ public class MapController
 	public void cargarInstancias() 
 	{
 		ArrayList<FicheroCoordenadas> ficheros = OpenFilesForm.getListCoordinates(mapViewer);
-		for(FicheroCoordenadas fichero : ficheros)
-		{
-			if(!ficherosCoords.contains(fichero))
-			{
+		for (FicheroCoordenadas fichero : ficheros) {
+			if (!ficherosCoords.contains(fichero)) {
 				ficherosCoords.add(fichero);
 				marcarCoordenadas(fichero);
 				calcularAGM(fichero);
@@ -70,8 +68,7 @@ public class MapController
 	{
 		borrarLineas();
 		ArrayList<GrafoCoordinates> agmsCluster = new ArrayList<GrafoCoordinates>();
-		for(GrafoCoordinates grafo : grafos)
-		{
+		for (GrafoCoordinates grafo : grafos) {
 			agmsCluster.add(grafo.clone());
 		}
 		dibujarPoligonos(agmsCluster);
@@ -79,8 +76,7 @@ public class MapController
 	
 	private void dibujarPoligonos(ArrayList<GrafoCoordinates> agmsCluster) 
 	{
-		for (int i = 0; i < ficherosCoords.size(); i ++)
-		{
+		for (int i = 0; i < ficherosCoords.size(); i++) {
 			GrafoCoordinates grafo = agmsCluster.get(i);
 			FicheroCoordenadas fichero = ficherosCoords.get(i);
 			Integer cantClusters = escribirCantidadClusters(fichero.getNombreArchivo(), grafo.aristas());
@@ -91,10 +87,8 @@ public class MapController
 	
 	private void dibujarLineas(GrafoCoordinates grafo)
 	{
-		for (Coordinate c1 : grafo.vertices())
-		{
-			for (Coordinate c2 : grafo.vecinos(c1)) 
-			{
+		for (Coordinate c1 : grafo.vertices()) {
+			for (Coordinate c2 : grafo.vecinos(c1)) {
 				ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
 				aristaMapa.add(c1);
 				aristaMapa.add(c2);
