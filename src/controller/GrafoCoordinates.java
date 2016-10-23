@@ -118,7 +118,14 @@ public class GrafoCoordinates
 	public GrafoCoordinates clone()
 	{
 		GrafoCoordinates clon = new GrafoCoordinates(vertices);
-				
+		for(Coordinate coord : vertices)
+		{
+			for(Coordinate vecino : vecinos(coord))
+			{
+				clon.agregarArista(coord, vecino);
+			}
+		}
+		
 		return clon;
 	}
 	

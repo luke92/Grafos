@@ -88,11 +88,6 @@ public class MainForm {
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				mapController.generarAllClusters();
-				/*List<Coordinates> listaCoords= listCoords;
-				borrarInstancias();
-				cargarCoordenada(listaCoords);
-				dibujarPoligono(listaCoords);
-				listCoords= listaCoords;*/
 			}
 		});
 
@@ -107,76 +102,9 @@ public class MainForm {
 		mapController.cargarInstancias();
 	}
 	
-	private void cargarCoordenada(List<Coordinates> listCoords) 
-	{
-		for (Coordinates coords : listCoords)
-			for (Coordinate c : coords)
-				mapViewer.addMapMarker(new MapMarkerDot(c.getLat(), c.getLon()));
-
-		dibujarPoligonos();
-	}
-	
 	private void borrarInstancias() 
 	{
 		mapController.borrarInstancias();
 	}
-
-	private void dibujarPoligonos() 
-	{
-		int index= -1;
-		for (Coordinates coords : listCoords) {
-			index++;
-			GrafoCoordinates grafo = new GrafoCoordinates(coords);
-			grafo.agregarTodasAristas();
-			GrafoCoordinates agm = Algoritmos.AGM(grafo);
-			Integer cantClusters = escribirCantidadClusters(agm.aristas(), index);
-			Cluster.generar(agm, cantClusters);
-			for (Coordinate c1 : agm.vertices())
-				for (Coordinate c2 : agm.vecinos(c1)) {
-					ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
-					aristaMapa.add(c1);
-					aristaMapa.add(c2);
-					aristaMapa.add(c2);
-					mapViewer.addMapPolygon(new MapPolygonImpl(aristaMapa));
-				}
-		}
-	}
 	
-	private void dibujarPoligono(List<Coordinates> listCoords) 
-	{
-		int index= -1;
-		for (Coordinates coords : listCoords) {
-			index++;
-			GrafoCoordinates grafo = new GrafoCoordinates(coords);
-			grafo.agregarTodasAristas();
-			GrafoCoordinates agm = Algoritmos.AGM(grafo);
-			Integer cantClusters = escribirCantidadClusters(agm.aristas(), index);
-			if(cantClusters > 0) Cluster.generar(agm, cantClusters);
-			for (Coordinate c1 : agm.vertices())
-				for (Coordinate c2 : agm.vecinos(c1)) {
-					ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
-					aristaMapa.add(c1);
-					aristaMapa.add(c2);
-					aristaMapa.add(c2);
-					mapViewer.addMapPolygon(new MapPolygonImpl(aristaMapa));
-				}
-		}
-	}
-	
-	private Integer escribirCantidadClusters(int aristas, int index)
-	{
-		String nombre = "";
-		//String nombre = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + (aristas+1) + ") para " + OpenFilesForm.getNombre(index));
-		Integer cantidad = 0;
-
-		if (!Pattern.matches("[1-9]\\d*", nombre))
-			escribirCantidadClusters(aristas, index);
-
-		cantidad = Integer.parseInt(nombre);
-		if (cantidad > aristas+1)
-			cantidad = escribirCantidadClusters(aristas, index);
-
-		return cantidad;
-	}
-
 }

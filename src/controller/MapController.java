@@ -50,43 +50,70 @@ public class MapController
 		grafo.agregarTodasAristas();
 		GrafoCoordinates agm = Algoritmos.AGM(grafo);
 		grafos.add(agm);
-		
-		for (Coordinate c1 : agm.vertices()){
-			for (Coordinate c2 : agm.vecinos(c1)) {
-				ArrayList<Coordinate> aristaPojo = new ArrayList<Coordinate>();
-				aristaPojo.add(c1);
-				aristaPojo.add(c2);
-				aristaPojo.add(c2);
-				mapViewer.addMapPolygon(new MapPolygonImpl(aristaPojo));
-			}
-		}
+		dibujarLineas(agm);
 	}
 	
 	public void borrarInstancias()
 	{
 		mapViewer.removeAllMapMarkers();
-		mapViewer.removeAllMapPolygons();
-		mapViewer.removeAllMapRectangles();
+		borrarLineas();
 		ficherosCoords = new ArrayList<FicheroCoordenadas>();
 		grafos = new ArrayList<GrafoCoordinates>();
 	}
 	
+	private void borrarLineas()
+	{
+		mapViewer.removeAllMapPolygons();
+	}
+	
 	public void generarAllClusters()
 	{
-		ArrayList<GrafoCoordinates> agmsCluster = (ArrayList<GrafoCoordinates>) grafos.clone();
-		
+		borrarLineas();
+		ArrayList<GrafoCoordinates> agmsCluster = new ArrayList<GrafoCoordinates>();
+		for(GrafoCoordinates grafo : grafos)
+		{
+			agmsCluster.add(grafo.clone());
+		}
+		dibujarPoligonos(agmsCluster);
+	}
+	
+	private void dibujarPoligonos(ArrayList<GrafoCoordinates> agmsCluster) 
+	{
+		for (int i = 0; i < ficherosCoords.size(); i ++)
+		{
+			GrafoCoordinates grafo = agmsCluster.get(i);
+			FicheroCoordenadas fichero = ficherosCoords.get(i);
+			Integer cantClusters = escribirCantidadClusters(fichero.getNombreArchivo(), grafo.aristas());
+			Cluster.generar(grafo, cantClusters);
+			dibujarLineas(grafo);
+		}
+	}
+	
+	private void dibujarLineas(GrafoCoordinates grafo)
+	{
+		for (Coordinate c1 : grafo.vertices())
+		{
+			for (Coordinate c2 : grafo.vecinos(c1)) 
+			{
+				ArrayList<Coordinate> aristaMapa = new ArrayList<Coordinate>();
+				aristaMapa.add(c1);
+				aristaMapa.add(c2);
+				aristaMapa.add(c2);
+				mapViewer.addMapPolygon(new MapPolygonImpl(aristaMapa));
+			}
+		}
 	}
 	
 	private Integer escribirCantidadClusters(String instancia, int aristas)
 	{
-		String cantidad = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas+1 + ") para " + instancia);
+		String cantidad = JOptionPane.showInputDialog("Cuantos Clusters quiere generar? (1 a " + aristas + ") para " + instancia);
 		Integer clusters = 0;
 
 		if (!Pattern.matches("[1-9]\\d*", cantidad))
 			escribirCantidadClusters(instancia, aristas);
 
 		clusters = Integer.parseInt(cantidad);
-		if (clusters > aristas+1)
+		if (clusters > aristas)
 			clusters = escribirCantidadClusters(instancia, aristas);
 
 		return clusters;

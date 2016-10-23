@@ -15,7 +15,12 @@ public class FicheroCoordenadas
 	{
 		return _coords;
 	}
-
+	
+	public String getNombreArchivo()
+	{
+		return _nombreArchivo;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
