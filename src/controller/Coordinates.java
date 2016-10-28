@@ -11,11 +11,6 @@ import dataAccess.CoordinateDao;
 public class Coordinates implements Iterable<Coordinate> {
 	private ArrayList<Coordinate> _coordinates;
 
-	public ArrayList<Coordinate> getCoords()
-	{
-		return _coordinates;
-	}
-
 	public Coordinates()
 	{
 		_coordinates = new ArrayList<Coordinate>();
@@ -47,6 +42,11 @@ public class Coordinates implements Iterable<Coordinate> {
 				return true;
 
 		return false;
+	}
+	
+	public ArrayList<Coordinate> getCoords()
+	{
+		return _coordinates;
 	}
 
 	public boolean readFile(String filename)
