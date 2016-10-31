@@ -21,7 +21,8 @@ public class MainForm {
 	private MapController mapController;
 	List<Coordinates> listCoords;
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -34,11 +35,13 @@ public class MainForm {
 		});
 	}
 
-	public MainForm() {
+	public MainForm()
+	{
 		initialize();
 	}
 
-	private void initialize() {
+	private void initialize()
+	{
 		// Proxy.autenticar();
 		
 		frame = new JFrame();
