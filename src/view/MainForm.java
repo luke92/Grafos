@@ -61,7 +61,6 @@ public class MainForm {
 				cargarInstancias();
 			}
 		});
-
 		btnCargarInstancias.setBounds(790, 11, 190, 23);
 		mapViewer.add(btnCargarInstancias);
 
@@ -71,7 +70,6 @@ public class MainForm {
 				borrarInstancias();
 			}
 		});
-
 		btnBorrarInstancias.setBounds(790, 45, 190, 23);
 		mapViewer.add(btnBorrarInstancias);
 
@@ -83,7 +81,6 @@ public class MainForm {
 				mapController.generarAllClusters();
 			}
 		});
-
 		btnAllClusters.setBounds(790, 79, 190, 23);
 		mapViewer.add(btnAllClusters);
 		
